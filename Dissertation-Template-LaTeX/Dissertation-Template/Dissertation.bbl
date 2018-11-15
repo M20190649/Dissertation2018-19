@@ -1,0 +1,38 @@
+\begin{thebibliography}{}
+
+\bibitem[D'Andrea and Marcelloni, 2017]{DAndrea2017}
+D'Andrea, E. and Marcelloni, F. (2017).
+\newblock {Detection of traffic congestion and incidents from GPS trace
+  analysis}.
+\newblock {\em Expert Systems with Applications}, 73:43--56.
+
+\bibitem[Dijkstra, 1959]{Dijkstra1959}
+Dijkstra, E.~W. (1959).
+\newblock {A note on two problems in connexion with graphs}.
+\newblock {\em Numerische Mathematik}, 1(1):269--271.
+
+\bibitem[{Garc{\'{i}}a Oya} et~al., 2018]{GarciaOya2018}
+{Garc{\'{i}}a Oya}, J., {Mart{\'{i}}n Clemente}, R., {Hidalgo Fort}, E.,
+  {Gonz{\'{a}}lez Carvajal}, R., and {Mu{\~{n}}oz Chavero}, F. (2018).
+\newblock {Passive RFID-Based Inventory of Traffic Signs on Roads and Urban
+  Environments}.
+\newblock {\em Sensors}, 18(7):2385.
+
+\bibitem[Jia et~al., ]{Jia}
+Jia, J., Ying, C., Shi, B.-N., Lan, K.-C., and Tseng, V.~S.
+\newblock {Spatial-temporal Mining for Urban Map-Matching}.
+\newblock Technical report.
+
+\bibitem[Liu et~al., ]{Liu}
+Liu, X., Lu, F., Zhang, H., and Qiu, P.
+\newblock {Intersection delay estimation from floating car data via principal
+  curves: a case study on Beijing's road network}.
+
+\bibitem[Zheng et~al., 2018]{Zheng2018}
+Zheng, Y., Li, Y., Own, C.-M., Meng, Z., and Gao, M. (2018).
+\newblock {Real-time predication and navigation on traffic congestion model
+  with equilibrium Markov chain}.
+\newblock {\em Special Collection Article International Journal of Distributed
+  Sensor Networks}, 14(4):2018.
+
+\end{thebibliography}
