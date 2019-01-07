@@ -1,7 +1,7 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6840 64-bit) (preloaded format=pdflatex 2018.10.19)  14 NOV 2018 17:39
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6840 64-bit) (preloaded format=pdflatex 2018.10.19)  26 NOV 2018 17:30
 entering extended mode
-**c:/Users/40203/Desktop/Dissertation-Template-LaTeX/Dissertation-Template/Dissertation.tex
-(c:/Users/40203/Desktop/Dissertation-Template-LaTeX/Dissertation-Template/Dissertation.tex
+**c:/Users/40203/Desktop/dissertation2018-19/Dissertation-Template-LaTeX/Dissertation-Template/Dissertation.tex
+(c:/Users/40203/Desktop/dissertation2018-19/Dissertation-Template-LaTeX/Dissertation-Template/Dissertation.tex
 LaTeX2e <2018-04-01> patch level 5
 ("C:\Users\40203\AppData\Local\Programs\MiKTeX 2.9\tex\latex\base\article.cls"
 Document Class: article 2014/09/29 v1.4h Standard LaTeX document class
@@ -144,18 +144,18 @@ Package: appendix 2009/09/02 v1.2b extra appendix facilities
 ) (Dissertation.aux)
 \openout1 = `Dissertation.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 56.
-LaTeX Font Info:    ... okay on input line 56.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 56.
-LaTeX Font Info:    ... okay on input line 56.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 56.
-LaTeX Font Info:    ... okay on input line 56.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 56.
-LaTeX Font Info:    ... okay on input line 56.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 56.
-LaTeX Font Info:    ... okay on input line 56.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 56.
-LaTeX Font Info:    ... okay on input line 56.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 65.
+LaTeX Font Info:    ... okay on input line 65.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 65.
+LaTeX Font Info:    ... okay on input line 65.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 65.
+LaTeX Font Info:    ... okay on input line 65.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 65.
+LaTeX Font Info:    ... okay on input line 65.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 65.
+LaTeX Font Info:    ... okay on input line 65.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 65.
+LaTeX Font Info:    ... okay on input line 65.
  ("C:\Users\40203\AppData\Local\Programs\MiKTeX 2.9\tex\context\base\supp-pdf.mkii"
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count104
@@ -232,114 +232,189 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 \tf@lof=\write5
 \openout5 = `Dissertation.lof'.
 
- [6] [7] [8] [9] [10] [11] [12] (Dissertation.bbl) [13]
-<./appendicies/IPOPage1.png, id=50, 597.6729pt x 845.0772pt>
+ [6] [7]
+
+LaTeX Warning: Citation `Dijkstra1959' on page 8 undefined on input line 101.
+
+
+LaTeX Warning: Citation `Zheng2018' on page 8 undefined on input line 109.
+
+
+LaTeX Warning: Citation `Zheng2018' on page 8 undefined on input line 111.
+
+
+LaTeX Warning: Citation `Zheng2018' on page 8 undefined on input line 114.
+
+
+LaTeX Warning: Citation `DAndrea2017' on page 8 undefined on input line 115.
+
+[8]
+
+LaTeX Warning: Citation `Svennerberg2010' on page 9 undefined on input line 118.
+
+
+Overfull \hbox (0.95984pt too wide) in paragraph at lines 118--119
+[]\OT1/cmr/m/n/12 Google maps was in-tro-duced in 2005, rev-o-lu-tion-is-ing the way maps worked
+ []
+
+
+LaTeX Warning: Citation `googleElevation' on page 9 undefined on input line 120.
+
+<./appendicies/googleElevationPath.png, id=34, 644.4075pt x 290.58563pt>
+File: ./appendicies/googleElevationPath.png Graphic file (type png)
+<use ./appendicies/googleElevationPath.png>
+Package pdftex.def Info: ./appendicies/googleElevationPath.png  used on input line 122.
+(pdftex.def)             Requested size: 390.0pt x 175.86914pt.
+[9 <./appendicies/googleElevationPath.png>]
+
+LaTeX Warning: Citation `TomTomHist' on page 10 undefined on input line 129.
+
+<./appendicies/TomTomZoom1.png, id=38, 517.18219pt x 405.76593pt>
+File: ./appendicies/TomTomZoom1.png Graphic file (type png)
+<use ./appendicies/TomTomZoom1.png>
+Package pdftex.def Info: ./appendicies/TomTomZoom1.png  used on input line 136.
+(pdftex.def)             Requested size: 390.0pt x 305.99539pt.
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+
+LaTeX Warning: Citation `TomTomLayers' on page 10 undefined on input line 141.
+
+[10] [11 <./appendicies/TomTomZoom1.png>]
+
+LaTeX Warning: Citation `Zheng2018' on page 12 undefined on input line 155.
+
+
+LaTeX Warning: Citation `Zheng2018' on page 12 undefined on input line 158.
+
+
+LaTeX Warning: Citation `Liu' on page 12 undefined on input line 161.
+
+[12] [13]
+
+LaTeX Warning: Citation `Jia' on page 14 undefined on input line 206.
+
+
+LaTeX Warning: Citation `Liu' on page 14 undefined on input line 208.
+
+
+LaTeX Warning: Citation `GarciaOya2018' on page 14 undefined on input line 219.
+
+
+LaTeX Warning: Citation `GarciaOya2018' on page 14 undefined on input line 221.
+
+
+LaTeX Warning: Citation `GarciaOya2018' on page 14 undefined on input line 223.
+
+[14]
+No file Dissertation.bbl.
+<./appendicies/IPOPage1.png, id=55, 597.6729pt x 845.0772pt>
 File: ./appendicies/IPOPage1.png Graphic file (type png)
 <use ./appendicies/IPOPage1.png>
-Package pdftex.def Info: ./appendicies/IPOPage1.png  used on input line 194.
+Package pdftex.def Info: ./appendicies/IPOPage1.png  used on input line 236.
 (pdftex.def)             Requested size: 390.00577pt x 551.44711pt.
 
-Overfull \hbox (17.63058pt too wide) in paragraph at lines 194--195
+Overfull \hbox (17.63058pt too wide) in paragraph at lines 236--237
 [][] 
  []
 
 
 Overfull \vbox (14.0582pt too high) has occurred while \output is active []
 
- [14 <./appendicies/IPOPage1.png>]
-<./appendicies/IPOPage2.png, id=56, 597.6729pt x 845.0772pt>
+ [15 <./appendicies/IPOPage1.png>]
+<./appendicies/IPOPage2.png, id=61, 597.6729pt x 845.0772pt>
 File: ./appendicies/IPOPage2.png Graphic file (type png)
 <use ./appendicies/IPOPage2.png>
-Package pdftex.def Info: ./appendicies/IPOPage2.png  used on input line 196.
+Package pdftex.def Info: ./appendicies/IPOPage2.png  used on input line 238.
 (pdftex.def)             Requested size: 390.00577pt x 551.44711pt.
 
-Overfull \hbox (17.63058pt too wide) in paragraph at lines 196--197
+Overfull \hbox (17.63058pt too wide) in paragraph at lines 238--239
 [][] 
  []
 
-[15 <./appendicies/IPOPage2.png>]
-<./appendicies/IPOPage3.png, id=61, 597.6729pt x 845.0772pt>
+[16 <./appendicies/IPOPage2.png>]
+<./appendicies/IPOPage3.png, id=66, 597.6729pt x 845.0772pt>
 File: ./appendicies/IPOPage3.png Graphic file (type png)
 <use ./appendicies/IPOPage3.png>
-Package pdftex.def Info: ./appendicies/IPOPage3.png  used on input line 198.
+Package pdftex.def Info: ./appendicies/IPOPage3.png  used on input line 240.
 (pdftex.def)             Requested size: 390.00577pt x 551.44711pt.
 
-Overfull \hbox (17.63058pt too wide) in paragraph at lines 198--200
+Overfull \hbox (17.63058pt too wide) in paragraph at lines 240--242
 [][] 
  []
 
-<./appendicies/diary1.png, id=62, 597.6729pt x 845.0772pt>
+<./appendicies/diary1.png, id=67, 597.6729pt x 845.0772pt>
 File: ./appendicies/diary1.png Graphic file (type png)
 <use ./appendicies/diary1.png>
-Package pdftex.def Info: ./appendicies/diary1.png  used on input line 211.
+Package pdftex.def Info: ./appendicies/diary1.png  used on input line 253.
 (pdftex.def)             Requested size: 390.00577pt x 551.44711pt.
 
-Overfull \hbox (17.63058pt too wide) in paragraph at lines 211--212
+Overfull \hbox (17.63058pt too wide) in paragraph at lines 253--254
 [][] 
  []
 
-[16 <./appendicies/IPOPage3.png>] [17 <./appendicies/diary1.png>]
-<./appendicies/diary2.png, id=71, 597.6729pt x 845.0772pt>
+[17 <./appendicies/IPOPage3.png>] [18 <./appendicies/diary1.png>]
+<./appendicies/diary2.png, id=77, 597.6729pt x 845.0772pt>
 File: ./appendicies/diary2.png Graphic file (type png)
 <use ./appendicies/diary2.png>
-Package pdftex.def Info: ./appendicies/diary2.png  used on input line 213.
+Package pdftex.def Info: ./appendicies/diary2.png  used on input line 255.
 (pdftex.def)             Requested size: 390.00577pt x 551.44711pt.
 
-Overfull \hbox (17.63058pt too wide) in paragraph at lines 213--214
+Overfull \hbox (17.63058pt too wide) in paragraph at lines 255--256
 [][] 
  []
 
-[18 <./appendicies/diary2.png>]
-<./appendicies/diary3.png, id=77, 597.6729pt x 845.0772pt>
+[19 <./appendicies/diary2.png>]
+<./appendicies/diary3.png, id=82, 597.6729pt x 845.0772pt>
 File: ./appendicies/diary3.png Graphic file (type png)
 <use ./appendicies/diary3.png>
-Package pdftex.def Info: ./appendicies/diary3.png  used on input line 215.
+Package pdftex.def Info: ./appendicies/diary3.png  used on input line 257.
 (pdftex.def)             Requested size: 390.00577pt x 551.44711pt.
 
-Overfull \hbox (17.63058pt too wide) in paragraph at lines 215--216
+Overfull \hbox (17.63058pt too wide) in paragraph at lines 257--258
 [][] 
  []
 
-[19 <./appendicies/diary3.png>]
-<./appendicies/diary4.png, id=82, 597.6729pt x 845.0772pt>
+[20 <./appendicies/diary3.png>]
+<./appendicies/diary4.png, id=87, 597.6729pt x 845.0772pt>
 File: ./appendicies/diary4.png Graphic file (type png)
 <use ./appendicies/diary4.png>
-Package pdftex.def Info: ./appendicies/diary4.png  used on input line 217.
+Package pdftex.def Info: ./appendicies/diary4.png  used on input line 259.
 (pdftex.def)             Requested size: 390.00577pt x 551.44711pt.
 
-Overfull \hbox (17.63058pt too wide) in paragraph at lines 217--218
+Overfull \hbox (17.63058pt too wide) in paragraph at lines 259--260
 [][] 
  []
 
-[20 <./appendicies/diary4.png>]
-<./appendicies/diary5.png, id=87, 597.6729pt x 845.0772pt>
+[21 <./appendicies/diary4.png>]
+<./appendicies/diary5.png, id=92, 597.6729pt x 845.0772pt>
 File: ./appendicies/diary5.png Graphic file (type png)
 <use ./appendicies/diary5.png>
-Package pdftex.def Info: ./appendicies/diary5.png  used on input line 219.
+Package pdftex.def Info: ./appendicies/diary5.png  used on input line 261.
 (pdftex.def)             Requested size: 390.00577pt x 551.44711pt.
 
-Overfull \hbox (17.63058pt too wide) in paragraph at lines 219--223
+Overfull \hbox (17.63058pt too wide) in paragraph at lines 261--265
 [][]
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 219--223
+Underfull \hbox (badness 10000) in paragraph at lines 261--265
 
  []
 
-[21 <./appendicies/diary5.png>] (Dissertation.aux) ) 
+[22 <./appendicies/diary5.png>] (Dissertation.aux) ) 
 Here is how much of TeX's memory you used:
- 3543 strings out of 492970
- 57153 string characters out of 3126593
- 123301 words of memory out of 3000000
- 7353 multiletter control sequences out of 15000+200000
+ 3549 strings out of 492970
+ 57677 string characters out of 3126593
+ 124251 words of memory out of 3000000
+ 7359 multiletter control sequences out of 15000+200000
  9495 words of font info for 33 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 44i,10n,43p,1079b,239s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 44i,10n,44p,1100b,295s stack positions out of 5000i,500n,10000p,200000b,50000s
 <C:/Users/40203/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Users/40203/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/40203/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/40203/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti12.pfb>
-Output written on Dissertation.pdf (22 pages, 864260 bytes).
+Output written on Dissertation.pdf (23 pages, 1460181 bytes).
 PDF statistics:
- 106 PDF objects out of 1000 (max. 8388607)
+ 111 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 41 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 51 words of extra memory for PDF output out of 10000 (max. 10000000)
 

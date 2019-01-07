@@ -26,6 +26,15 @@
 \usepackage{apalike}
 % These packages are all incorporated in the memoir class to one degree or another...
 
+\newcommand{\figuremacro}[5]{
+    \begin{figure}[#1]
+        \centering
+        \includegraphics[width=#5\columnwidth]{#2}
+        \caption[#3]{\textbf{#3}#4}
+        \label{fig:#2}
+    \end{figure}
+}
+
 %header and footer settings
 \pagestyle{fancyplain}
 \fancyhf{}
@@ -103,9 +112,42 @@ Traffic
 
 \paragraph{}
  Equation to determine the speed weighting for cars in the current area: (cars in average speed cluster) / (total number of cars) * (average speed of cars in the current area). (equation) \cite{Zheng2018}
-\subsubsection{}Traffic congestion is measured by detecting the average speed of the vehicles and if the vehicles are moving slower than 10km/h, then a road is congested. \cite{DAndrea2017}
+\subsubsection{}Traffic congestion is measured by detecting the average speed of the vehicles and if the vehicles are moving slower than 10km/h, then a road is congested \cite{DAndrea2017}.
 
-\subsection{Maps Research}
+\subsection{Google Maps}
+Google maps was introduced in 2005, revolutionising the way maps worked when display on websites as it allowed users to interact with the map \cite{Svennerberg2010}.
+\subsubsection{Google Maps Elevation API}
+Google Maps allows users to see the elevation of locations through the "terrain layer". This layer shades in different parts of the map to show which locations are higher than others. This data is taken from the "Elevation API". This allows users of the API to find the elevation of certain locations by providing the "LocationElevationRequest" with a GPS coordinate which will in return provide the user with an elevation for that GPS coordinate in meters. This API also allows the user to request a set of GPS coordinates along a path by providing the "PathElevationRequest" with two or more GPS coordinates along a path along with a number of samples for the path to be split up into, for example if a the path had two GPS coordinates and was split up into 16 samples then the "PathElevationRequest" would return a graph with 16 elevations between the two coordinates specified \cite{googleElevation}.
+
+\figuremacro{h}{googleElevationPath}{PathElevationRequest}{- This is what PathElevationRequest returns for 6 coordinates at 256 samples.}{1.0} 
+
+\subsection{TomTom maps}
+TomTom was founded in 1991 beginning in the business-to-business section of the technology market. They then went on to develop personal digital assistants (PDAS) in the early 90s, going on to become the market leader in PDA software with navigation applications such as "RoutePlanner" and "Citymaps". In 2002, the TomTom "Navigator" provided the first affordable and easy-to-use navigation system to customers in Europe.
+
+This increased demand for portable navigation devices, which lead to the development of the Portable Navigation Device (PND). This became the fastest selling consumer technology device in history and by 2016 TomTom had sold over 78 million PNDs.
+
+Nowadays, TomTom provide customers with several navigation-based products, including a navigation app for android and wrist devices for sports enthusiasts, reaching over 800 million people a day \cite{TomTomHist}.
+
+\subsubsection{Map tiles}
+The TomTom maps API provides the user to view the maps using raster tile images or vector tile images. The difference is subtle when viewing the maps, however in theory, raster tiles should be more detailed as the tile is coloured per pixel whereas vector imaging colours the tile based on the objects inside it (roads, rivers, etc.).
+
+The number of tiles shown depends on the level of zoom that the user has defined (by using a pinching gesture on the screen). There are 23 different levels of zoom with 0 showing the whole world in one tile and zoom level 22 showing 2 to the power of 22 tiles. 
+
+\figuremacro{h}{TomTomZoom1}{Zoom level 1}{- This is Zoom Level 1 which is 4 tiles in total.}{1.0} 
+
+\subsubsection{Map layers}
+The TomTom maps API also allows the maps to be separated into different layers to make it easier to update the map or to show places in different languages etc. There are three layers defined in the TomTom documentation: Basic, Hybrid and Labels. The Basic layer shows all the maps features as an end user would see it. The Hybrid layer is a step down from that as it takes the polygons that outline the birds eye view of the buildings so that the view of the map is focussed on the roads more. The Labels layer shows only the labels of the named places shown on the map in the position they would be in, in the Basic layer. The allows the developer to see places more clearly which allows the addition of places to be easier and also to check whether the names of the places are in the correct place and are spelt correct in their respective languages.
+
+The map also has styles that affect the way that the layers are shown: main and night. The main style is more of a light theme where all the usual map colours are used, however, the night style will use colours that are not too intrusive to the user at night \cite{TomTomLayers}.
+
+There are also some layers that are not directly related to the map, these include: traffic incident road highlighting,
+
+\subsubsection{Traffic data}
+TomTom maps provide a traffic data API to allow developers to use real-time traffic data that TomTom collects. The data is split up into traffic incidents and traffic flows. The Traffic incidents API allows the user to be informed of traffic jams due to road incidents that will affect the route that the user takes. The traffic flow API tracks the users speed on the routes that they are taking so that the next user can benefit from the road being used before them to provide them with more accurate routing and predicted travel times. The traffic incident API updates every 2 minutes to give the user (and the software) the chance to change their route in accordance to the latest traffic incident updates. The traffic flow API is updated every minute.
+
+The traffic incident API will return information to the user and the system that details the impact of certain traffic incidents within the tile the user is currently in, or in fact along the route that the user is taking. 
+
+\subsubsection{Traffic data}
 
 \subsection{Routing Research}
 
