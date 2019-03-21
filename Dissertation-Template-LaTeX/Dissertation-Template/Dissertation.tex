@@ -98,16 +98,29 @@ Insert acknowledgements here
 
 
 \section{Introduction}
-The aim of this project is to describe a way of navigating through a city through the use of real-time traffic data. This will be achieved by testing different pathfinding algorithms for example: \cite{Dijkstra1959}. Research will also be carried out on traffic and other data affecting vehicles getting to their destinations faster. This will be done by rigorously testing car speeds at certain times in the same place within the city Edinburgh. This should give data that can input into a pathfinding algorithm. The results will then be compared to similar experiments developed by others as a way of finding out which method was the most accurate, cost-effective and efficient to travel through a city and discussing which methods are the most suitable for getting through any city. The main interface used to convey the outcome of this project is an android application. It is also thought to make use of API’s like: “OpenstreetMaps” to speed up the development.
+The aim of this project is to adapt a satellite navigation system to provide the most favourable route from one departure point to a particular destination. This will be achieved by testing Dijkstra's pathfinding algorithm and optimising it for a navigation system \cite{Dijkstra1959}. Research will also be carried out using traffic and other data to show how vehicles may reach their destinations more quickly, by rigorously testing car speeds at certain times using the same route within the city of Edinburgh, then attempting to improve the algorithm through the use of the test data. The results will be evaluated by comparing the test data to similar test data from experiments developed by others, thus determining which method is the most accurate, cost-effective and efficient way of travelling through a city. The main interface used to convey the outcome of this project is an android application. Research will also be undertaken to find out if Application programming interface ("APIs") such as: OpenStreetMaps, Google Maps and TomTom Maps may be used to speed up development of the application.
 
+\subsection{Background}
+\subsection{Motivation}
+\subsection{Report Structure}
+\subsection{Conclusion}
 
+\paragraph{}
 \section{Literature Review}
+\subsection{Introduction}
 
 \subsection{Traffic Research}
-Traffic
 
-\subsubsection{}Some conditions for road users that affect the speed of cars and therefore traffic: road weather changes, car accidents and traffic congestion. \cite{Zheng2018}
-\subsubsection{}Difference between distance based navigation (a) and time based navigation based navigation (b). As you can see the time based navigation works out that though the distance is greater for a car to travel from points 1-5 it takes less time than from points 1-3-5. (pic)
+
+\subsubsection{}Weather conditions, road incidents and traffic congestion are some of the main factors which affect road users and the speed of cars. \cite{Zheng2018}
+
+\subsubsection{Distance based algorithm versus time based algorithm}There is a difference between distance-based navigation and time-based navigation: as you can see in figure 1, the red line highlights the path of navigation of a car from points 0 to 5 and the black denotes other potential routes; although the distance 
+of the red line from points 1 to 3 to 5 shown in (a), it takes less time to go from points 1 to 5 as shown in (b), therefore (b) demonstrates the optimum (time-based) route.
+
+\newpage
+
+\figuremacro{h}{TimevsDistanceWeightFactors}{Time versus Distance graphs}{- These are two graphs that represent distance and time respectively.}{1.0} 
+
 \subsubsection{}To find traffic congestion, find cars within one road or a set of roads that are averaging the lowest average speed and put the cars on different routes (repeat process) until the average speed has been brought up again to a more suitable average speed (20 km/h). \cite{Zheng2018}
 
 \paragraph{}
@@ -147,6 +160,42 @@ TomTom maps provide a traffic data API to allow developers to use real-time traf
 
 The traffic incident API will return information to the user and the system that details the impact of certain traffic incidents within the tile the user is currently in, or in fact along the route that the user is taking. 
 
+\subsubsection{Search API}
+The TomTom Search API allows users to search for points of interest (POI) and addresses that may be relevant to their destination. The user can also use reverse-geocoded searches as well as the search will match up any longitude/latitude coordinates that the user enters.
+
+TomTom's full search API makes use of eight different types of searching: Fuzzy, POI, Category, Routed, Geometry, Nearby, Low bandwidth and Along route search.
+
+TomTom uses a "fuzzy" search to allow the user to get suggestions based on what they search. The fuzzy search finds locations that are similar to the search keyword that the user has entered to help find what the user is looking for. 
+
+TomTom uses a "Point of Interest" search to allow the user to search for commonly known Points of interest (POI). Any query that is searched for will return a list of POIs that are similar to the name of the POI that you have searched for.
+
+There is also a way of searching for Points of interest that are linked to a certain category using the category search. The categories include commonly searched places like: pubs, sports centres etc.
+
+There is also a "Routed" search. The routed search 
+
+There is also a "Geometry" search. This a search that will search for anything within a certain number of longitude/latitude vertices of an enclosed shape. For example: if five longitude/latitude points are searched for then it will return Points of interest within a pentagon's radius. 
+
+There is a "Nearby" search. This is a search that allows the user to search for Points of interest around a certain location (often the user's location, if available).
+
+There is a "Low bandwidth" search. This allows the user to 
+
+There is also a "Along route" search that allows the user set points of interest that the user wants to detour current route for. 
+
+There is also a "geocoded" search that will search for addresses that are similar to the current search query that the user has inputted.
+
+\subsubsection{Routing API}
+
+TomTom claims to have the best routing engine in the industry. This is through the use of traffic data and their "IQ routes" engine.
+
+The "IQ routes" engine is based on average speed data that is taken from their traffic API. It will get an average speed for each road that is along the fastest route paths based on recent historical traffic data. 
+
+The traffic data is collected anonymously by users' of the TomTom app. 
+
+The IQ route also takes into account: traffic lights, roundabouts, steep slopes, speed bumps and whether the user is travelling on a weekday or at the weekend as these things commonly slow road users' down.
+
+The routing API can also allow the user to set preferences to adapt the route to their needs, these include: fastest route, shortest route, eco route, calculating departure and arrival times for the current route, avoid toll roads/ferries etc.  
+
+You can also request more than one route to be calculated to show the visual difference between different routes. 
 \subsubsection{Traffic data}
 
 \subsection{Routing Research}
@@ -217,10 +266,170 @@ Disadvantages of active RFID:
 \paragraph{}
 By contrast, advantages of passive RFID tags are:
 - Theoretically, the obtained distance of seven meters based on static experiments in \cite{GarciaOya2018} is a good enough range for reading passive RFID tags as cars are normally just over two meters away from the pavement and based on the data rate (40Kbps- protocol: EPC GLOBAL 1G2 ISO 18000-6C) requires only twenty-five milliseconds to measure a tag. 
-- In theory, the passive tag in this paper can measure cars passing at speeds of up  to one hundred kilometers an hour, which therefore suggests that for most use-cases in the city, cars can be read by passive tags.
+- In theory, the passive tag in this paper can measure cars passing at speeds of up  to one hundred kilometres an hour, which therefore suggests that for most use-cases in the city, cars can be read by passive tags.
 - Another advantage is that the complex anti-collision protocol used in \cite{GarciaOya2018} is not necessary due to the reader, used in the experiments, being able to read multiple tags on the same plate.
 
-The conclusion drawn from form this comparison is that the passive tag advantages outweigh the use of active tags, in this situation, as the active tags would be "overkill". These results are then validated by the car-in-motion sensor test results - at fifty kilomters an hour, ten tags were read in about 250 milliseconds. However, this approach is limited as the RFID reader needs constant \textit{or at least for the few seconds that a car passes the road sign with an RFID reader attached} line of sight with the car's RFID tag as anything such as a parked vehicle could block the reading. \cite{GarciaOya2018} 
+The conclusion drawn from this comparison is that the passive tag advantages outweigh the use of active tags, in this situation, as the active tags would be "overkill". These results are then validated by the car-in-motion sensor test results - at fifty kilometres an hour, ten tags were read in about 250 milliseconds. However, this approach is limited as the RFID reader needs constant \textit{or at least for the few seconds that a car passes the road sign with an RFID reader attached} line of sight with the car's RFID tag as anything such as a parked vehicle could block the reading. \cite{GarciaOya2018} 
+
+\newpage
+\section{Technology Review}
+\subsection{Introduction}
+TomTom maps was one of the stand out technologies for this project as it was one of the most accessible and open libraries. It also had the capabilities to achieve a large set of the aims set out at the start of the project.  
+Other technologies that were considered were Google maps, HERE maps, OpenStreetMaps 
+and Bing maps. 
+Google maps was thought to be this project’s maps development software at the start of this project, however, the aims of the project could not be developed through Google maps due to the restricted amount of data that could be retrieved from the library. 
+HERE maps was a potential maps development software, however, the initial map application could not be set up, when following the tutorial.
+OpenStreetMaps had promise as a potential maps development software. It had all the features that all the other maps and more. A feature that could have been useful to this project to help with the application of routing is the fact that OpenStreetMaps has the locations of traffic lights. However, OpenStreetMaps lacked the functionality of other maps as…
+\subsection{Comparison of Technologies}
+table...
+\begin{table}
+  
+\end{table}
+
+
+\newpage
+\section{Methodology and Design}
+\subsection{Introduction}
+This section will describe how the project was set up and what designs were made before hand to plan for development. It will include what methods were used to plan each development stage, how plans were adapted to make sure the aims were achieved and the tests that were set up to measure the effectiveness each feature developed.
+
+\subsection{Preparation for Development}
+This section will describe the models that were used to plan for the development stages.
+
+\subsubsection{Model 1: MoSCoW method}
+The general aims of the project were prioritised in terms of what was most important to achieve a successful project. (picture of MoSCoW method)
+As you can see from (figure.number) a plan was set up to make sure that the interface of the app and the shortest path finding algorithm were developed to achieve most of the aims of this project. Other features that should be added to achieve the aims of the project included the displaying of the result and weighting factors that uniquely changed how the route was calculated. Other ideas that could have been in the project were good ideas, however, did not help achieve the aims of the project and would be done as an extension of the project.
+
+\subsubsection{Model 2: Sprint Backlog}
+After the aims of the project were prioritised, they were split into manageable sprints to form a sprint backlog. This allowed to plan for development and made sure that the aims were delivered within the time given. The plan was made just before development began so that most of the uncertainty about TomTom services was taken care of. (picture of sprint backlog)
+(figure.number) shows that there are four two-week sprints planned for the development of the app. Each includes at least one new feature to implement and by the end the app should be able to achieve all of tis projects aims. 
+
+\subsection{Android Development Process}
+This section will describe the process of how Android Studio was set up for the development of the app.
+\subsubsection{Targeted versions}
+Java 1.8.0 was used for the development of this project. The Android SDK (Standard Development Kit) compilation and targeted version was API level 27 (Android 8.1 Oreo) and the minimum SDK version was API level 23 (Android 6.0 Marshmallow). The Android Studio version was kept up to date throughout the project (latest version 3.3). The hardware used to run the app is in the following tables: (table 1: PC specs, table 2: phone specs)
+
+\paragraph{TomTom APIs}
+TomTom offer various open source (to an extent) APIs. The APIs selected for this project were: maps, routing, search, traffic, maps-styles, maps-UI. For the TomTom maps API to run, a minimum Android SDK of level 23 was required. For some of the app's features to work the TomTom APIs needed to be set at different versions below is a table the selected APIs and the main reasons for selecting these API levels. (table of selected TomTom APIs). The initial APIs were all set at level "2.+" meaning that it find the latest version of the TomTom APIs and download them. However, during development TomTom decided to depreciate a number of API features that were being used by the app resulting in errors. This meant that the API levels had to be changed to suit the needs of the project's aims shown in the previous table(table number).    
+
+\paragraph{Version control}
+The version control used to backup and track the versions of the app was Git hosted by GitHub. The project was deemed to only have one master branch instead of multiple development branches as every feature that was planned to be added was linked to every other feature and therefore the app had to have all features working at the same time for it to work. It was also deemed unnecessary to have multiple development branches as it is a fairly short project and merging errors could have taken a long time to resolve and therefore, at the risk losing time due to all features being developed at the same time on the master branch, it was seen as a worthwhile risk.
+
+\subsubsection{Implementation of the User Interface}
+To set up the initial TomTom user interface, a fairly outdated TomTom tutorial on their developer website (cite) was used. The tutorial was carried out so that the map could be displayed and that POIs (Points of Interest) could be used as a possible tool for the future (see "would" category of MoSCoW method figure). The initial development of the app caused some unexpected errors and in turn some drawbacks to the speed of development. The initial implementation of the interface was attempted on a laptop (see table number below for specifications), however, for some reason the app could not run on the device. The project was then moved onto a PC for further development, due to the app running successfully on the PC. It was suspected that some part of the tutorial was not followed properly.
+
+\paragraph{Initial User Interface Development}
+
+ The map was initially set up to allow the user to long press a location on it to provide a point of departure, the user could then long press another location to select a destination for the TomTom routing API calculate the fastest route to. The map displayed the two points for the route (departure and destination) using different start and finish icons and displayed a highlighted route between the two points (see below for initial development figure. number). The route could also make use of POIs. The search bar at the bottom of (initial development figure.number) could be used to find nearby POIs. The interface would then allow the user to select and add POIs to their route. The TomTom routing API would then change the route to allow the user to make a stop at the selected POI or POIs.
+
+ \paragraph{}
+ The POIs could be selected through the use of a custom marker. Each POI is marked on the map with a balloon marker and all markers can be clustered so it is more clear to the user what they are selecting. Once a balloon marker was selected, a rectangle appears showing the information about that location including the name and address of the POI. Within the rectangle there is also a button that can be used to add the POI as a waypoint for the user's current route.
+
+\paragraph{Further User Interface Development}
+The map interface was then further developed in Sprint 2 (see sprint backlog figure.number). In this sprint, the map displayed alternative routes to the fastest route that was initially displayed (see initial development figure.number). The alternative routes were displayed in different random colours to clearly show to the user how many routes were selected by the TomTom routing API. In sprint 2, due to some free time, another feature was attempted: display the distance of each route. However, this feature took too long to implement and therefore was not put into the final prototype.
+
+\subsubsection{Pathfinding and implementing Dijkstra}
+Dijkstra was implemented in a separate class from the map using an adaptation of the "GeeksforGeeks Printing Paths in Dijkstra's Shortest Path Algorithm" webpage (cite). 
+
+\paragraph{Class Implementation}
+The Dijkstra algorithm, implemented in the app, takes as input: a 2D array of doubles and an integer to represent the index for where to start calculating the shortest paths. It then initially sets a distance variable to infinity (max integer value) and compares it to each vertex changing the variable as it finds a new minimum distance relating to a vertex. Each vertex index is also put into a list of Booleans which sets each vertex index to false to make sure the algorithm visits all necessary vertices by making sure it does not remain looking at the shortest vertex distance. After the algorithm goes through all the vertices and found the shortest distance vertex, it will set that vertex to true so that it will not be visited by the algorithm again and also store its index in the "nearestIndex" variable and it will then update the shortest path from the start vertex (or current vertex) to the "nearestVertex". It will go through a list of shortest distances, setting the nearest vertex index to the current vertex index, if the distance hasn't been added to the shortest distances list already. It will then add the nearest vertex index to the list of Booleans to show that the vertex has been visited and a shortest distance has been found and to ensure that the algorithm does not revisit that index. The algorithm will then loop through the 2D array of doubles so that a parent vertex index can be set and a shortest distance can be added to the shortest distances list if necessary. 
+
+\subsubsection{Problems and Solutions With Implementing Dijkstra}
+There were a number of problems whilst the Dijkstra algorithm was being set up.
+
+\paragraph{Problem:}
+To set up the Dijkstra algorithm the points that are used in it need to be translated into distances between the points and the distances need to put into the positions of the points that they refer to within an 2d array. However the initial implementation of this translation of points took longer than expected.
+Initial method: 
+The initial method involved checking each point's distance away from the start of the of the Array-list (departure point) and putting the sorted points in order in another list. 
+
+However, this meant that each point's distance did not factor the restrictions of roads when ordering the list as the resulting route would just draw a straight line from the first point to the last point. The problem can be seem in figure below:
+(fig)
+
+%\figuremacro{h}{pointsWithNoStreets}{ Points with no Streets}{- This is a picure of some points connected connected to the starting point but do not consider the restrictions of roads.}{1.0}
+
+\paragraph{Attempt 2:} 
+The second attempt involved checking each point against the rest of the points in the points Array-list to find the closest two points to each point and saving each point to a 2d array and it's closest pair of points to a 2d array.
+
+This attempt should have worked, in theory, however, the way that the Dijkstra algorithm was set up, it was not the right input to get the right result from Dijkstra. This attempt also made the program run really slow.
+
+\paragraph{Attempt 3:}
+Multi-threading was attempted to reduce the time that it took to process the Dijkstra algorithm.
+
+However, the time it took to calculate the nearest points to each point still took too long.
+
+Further thoughts: 
+A solution that was thought of before the final implementation was implemented was to do the algorithm calculation on a more powerful server-side pc and then retrieve the results from the server and display the resulting route on the phone.
+
+
+\paragraph{Attempt 4:}
+Attempt 4 involved investigating how many points were found on the same street.
+
+The coordinate points were to be organised into different streets so that the algorithm could tell which points were allowed to connect to each other before it was found that the points from each route were connected to each other and meant that the points could be added by route in the final implementation.
+
+The solution was to reverse geocode each coordinate using TomTom’s search API to find out the street name that was attached to that coordinate. This was done by first putting all the street names in an Array List, then comparing each street name string to the previous one in the list. If the street names matched, then point indexes of the street names were added to another list of point indexes. The points list and the street name were also added to a HashMap to map the keys (street names) and the values (list of points).
+
+There were some exceptions to this method that had to be put in place after debugging. It was found that the first point could not be compared to its previous point, and therefore the comparison had to be checked after the first point which also meant that the first point had to added to the point index list. There was also a similar case when it came to the end of the list, the last point would be checked if it matched the second last point and if it did not match the same street name string, it would not be added to the HashMap. Therefore, it had to added as a separate street if it did not relate to the previous point in terms of its street name.
+
+There was also a limitation given by TomTom when calling TomTom's search API to reverse geocode the points. TomTom restricts every free API user to 5 calls every second. Therefore the code had to be scheduled to a call every 200 milliseconds, however this caused the program to pause the main UI thread for a long period of time. A workaround to this, was to start an "executor service" which schedules an amount of tasks to run in the future based on the remaining threads available. Each service scheduled to run would search for a coordinate in a thread and map each coordinate to its rightful street. It then sleeps that thread for 200 milliseconds. This means that as there are normally up to 4 threads available at a given time, there should always be a spare operation to run for the next thread after the four threads run the operation and then sleeps. 
+
+However, It was found that the street names were required to find out the difference between points and which points are junctions that will be used in the algorithm to restrict the algorithm to find distances based on the road layout, rather than just find the distance between any point and itself.
+
+\paragraph{Final implementation solution:}
+The final implementation was to create a 2d array and add the distance between every point and the next, from one route at a time, as each of TomTom's routes were found to be in the right point order. 
+
+Some issues were found with this attempt including the fact that if there were multiple routes, then points that matched each other were placed in the same 1d array within the 2d array meaning that the 2d array then had a blank 1d array at the end of the 2d array meaning that the algorithm would treat the last point and the first point as the only two points needed to get from the departure point to the destination point. 
+
+Therefore some changes needed to be made to 2d array as each matching pair of points were found. This was solved by checking if there were matching points and if there were any for each one clone the 2d array into a temporary 2d array and then re-initialising the old 2d array with one less 1d array. The cloned temporary 2d array's points are then put into the newly initialised 2d array again to make a 2d array with one less 1d array in it.
+
+To reduce the number of "index out of bounds" errors, there were counters set up to properly index each point in the right place. One counter was set up initially to count the first element of the first route. It then increments for each point in the route. Another counter is set up to count the point after the first counter (initially the second point of the first route). These two counters are set back to the first and second points at the stat of every new route. another pair of two counters are set up count every point in every route to properly place each point in the right place in the 2d array. However these counters need to be decremented every time the list is resized due to a matching pair of points. The last counter that is used within the creation of the list for the algorithm is a counter that counts how many matched pairs there are in the list of points to keep track of how big the new 2d array is once it is once again resized.
+
+\subsubsection{Database integration}
+Unfortunately, TomTom will not allow the use of their traffic data including the data that users of their app send to their servers on past route times and traffic light positions along with some other useful data. To increase the accuracy of results, it was therefore decided to make a database with some initial data about how many traffic lights are on some specific roads, with the capability of adding more data that can be added in the future.
+
+A XAMPP server was used to store and connect to the database. This hosts a server on a local machine, that can hold many different types of databases at once.
+
+There was a table set up on the server that held information about the speed limit, the number of traffic lights, the number of speed bumps, the time it took complete a road, the distance of the road and the name of the road itself all relating to a unique id that automatically increments with the addition of every new road that is inserted into the database.
+
+The idea was that the time that it took to complete each road divided by the distance would be the user's speed along the road. This would then give an indication as to what the speed limit is and what obstacles effect the cars speed.
+
+However, There is an optimisation formula that is also applied to this problem. due to the rarity of speed bumps and the knowledge that most speed bumps in the UK are on minor roads. Then it can be assumed that most of the time a car will not be effected by speedbumps. It can also be assumed that most roads reporting cars speeds that are over 30mph will not be slowed down by speed bumps. 
+
+Roads that report speeds of over 30 mph will be assumed to have traffic lights on them or will have other less common speed factors attached to them. 
+
+It will generally be assumed that average speed taken at the end of each road will be less than 9 mph below the speed limit when average speed is less than 30 mph. This is because unless there is major traffic or road works then average speed is not assumed to be effected by more than 9mph, and therefore, for average speeds that are lower than 30 mph, the speed limit will be rounded up to the nearest 10mph (if average speed = 23 mph then speed limit = 30mph). It has also been assumed that if the average speed is 9mph below the next 10mph, then the average speed should be related to the nearest 10mph below the average speed (if average speed = 11mph then speed limit = 10mph).
+
+If the average speed is higher than 30 miles an hour, it is harder to predict the speed limit of the road based on average speed. It will therefore be initially determined by adding ten to the the average speed and then rounding to the nearest 10mph (if average speed = 44mph then 44+10=54 and the speed limit is 50 mph, however, if average speed = 45, then the speed limit = 60 mph). 
+
+The number of speed bumps and traffic lights will depend on how low the average speed is compared to the speed limit. The number of traffic lights will be determined by how slow the average speed is below the speed limit by adding up the average wait time at traffic lights until the average speed would be within 2mph of the speed limit. The number of speed bumps will be determined by the adding up the average time it takes to pass each speed bump until the average speed would be within 2mph of the speed limit. 
+
+Due to the occurrence of speed bumps being less common than traffic lights, then the probability factor of speed bumps effecting the predicted route time will be set lower than that of traffic lights.
+
+If the application checks the database for a road, and the road is not in the database already then the application has to make some assumptions as to what factors will affect the time it will take for a car to arrive at its destination. Therefore, the application calls the "speedFactor" method. This method applies a set of different factors that could effect the speed of a car along its journey to produce more realistic results than just using the speed, distance and time formula. The method applies three different speed factors: speed bumps, traffic lights and pedestrians. These are presumed to be the most effective factors at slowing a car down other than traffic and road works. There three variables that are set at varying probabilities. Speed bumps are 5\% likely to decrease speed on any road, whilst traffic lights are 30\% likely and pedestrians are 10\% likely. There are also three variables that control how much the speed of the car is effected by each of the speed factors along every street. Speed bumps are presumed to effect the time it takes to get to the end of a street by 50\%, the effect of traffic lights on the speed of cars is also 50\% and the effect of pedestrians on the speed of cars is only 10\%.
+
+\subsubsection{Helper functions implemented to format certain parts of the algorithm}
+
+\paragraph{Distance formula}
+The Haversine formula was used to calculate the distance between a pair of latitude/longitude points. This formula finds the distance between two points along the earth's surface without considering the altitude of the points and therefore is not accurate when judging distances from low ground to high ground. 
+
+The formula is this...
+
+\subsubsection{Testing the application}
+The application will be tested multiple times to improve accuracy of results. 
+
+\paragraph{Test 1}
+The application data will be compared to real route data travelled in a car. The application will initially predict what time the car will arrive at the destination depending on the weighting factors that are set up. The car will then be driven according to the same route, the time it took the car to finish the route will be recorded along with the separate times it took to complete each road. The real data will then be inputted into the database and the route time will then be predicted again. The results from the initial prediction will then be compared to the real data taken from the car, and then compared to the prediction made using the data taken from the database. The test route will only initially include roads with speed limits known to be 30mph or less, the test will then be repeated using a different route that uses roads are predominantly over 30mph.
+
+\paragraph{Test 2}
+The application routing will be compared to other applications' routing including: TomTom maps and Google maps. This will be achieved by testing if the applications' differ in routing choice and the time it takes to complete each route when given the same departure and destination. 
+
+\section{Results}
+\section{Evaluation}
+\section{Future Work}
+
+
+
+
+
+
 
 \newpage
 \bibliographystyle{apalike}
