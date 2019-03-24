@@ -18,13 +18,19 @@
 
 %%% PACKAGES
 \usepackage{booktabs} % for much better looking tables
+\usepackage[autostyle=false,style=british]{csquotes}
 \usepackage{array} % for better arrays (eg matrices) in maths
 \usepackage{paralist} % very flexible & customisable lists (eg. enumerate/itemize, etc.)
+\usepackage[parfill]{parskip}
 \usepackage{verbatim} % adds environment for commenting out blocks of text & for better verbatim
 \usepackage{subfig} % make it possible to include more than one captioned figure/table in a single float
 \usepackage[toc,page]{appendix}
 \usepackage{apalike}
+\usepackage{listings}% code listing package
+\usepackage{algorithm2e} % algorithm package
 % These packages are all incorporated in the memoir class to one degree or another...
+
+\MakeOuterQuote{"}
 
 \newcommand{\figuremacro}[5]{
     \begin{figure}[#1]
@@ -48,7 +54,7 @@
 
 %set better section layout
 \makeatletter
-\renewcommand\subsection{\@startsection {subsection}{1}{2mm} % name, level, indent
+\renewcommand\subsection{\@startsection {subsection}{1}{0mm} % name, level, indent
                                {3pt plus 2pt minus 1pt} % before skip
                                {3pt plus 0pt} % after skip
                                {\normalfont\bfseries}}
@@ -57,12 +63,16 @@
 \renewcommand\section{\@startsection {section}{1}{0mm} % name, level, indent
                                {4pt plus 2pt minus 1pt} % before skip
                                {4pt plus 0pt} % after skip
-                               {\bfseries}}
+                               {\Large\bfseries}}
 \makeatother
+
+%put paragraph headings on their own line
+\newcommand{\myparagraph}[1]{\paragraph{#1}\mbox{}\\}
 
 
 %this starts the document
 \begin{document}
+\lstset{language=Java}
 
 %you can import other documents into your main one, these layout the Title and Declarations on its own page.
 %you might need to change these to \ if your on Microsoft Windows.
@@ -98,43 +108,139 @@ Insert acknowledgements here
 
 
 \section{Introduction}
-The aim of this project is to adapt a satellite navigation system to provide the most favourable route from one departure point to a particular destination. This will be achieved by testing Dijkstra's pathfinding algorithm and optimising it for a navigation system \cite{Dijkstra1959}. Research will also be carried out using traffic and other data to show how vehicles may reach their destinations more quickly, by rigorously testing car speeds at certain times using the same route within the city of Edinburgh, then attempting to improve the algorithm through the use of the test data. The results will be evaluated by comparing the test data to similar test data from experiments developed by others, thus determining which method is the most accurate, cost-effective and efficient way of travelling through a city. The main interface used to convey the outcome of this project is an android application. Research will also be undertaken to find out if Application programming interface ("APIs") such as: OpenStreetMaps, Google Maps and TomTom Maps may be used to speed up development of the application.
+
+\subsection{Definitions}
+
+\begin{itemize}
+  \item \textbf{Application Programming Interface/s (\enquote{API} or \enquote{APIs})} - a programming library,  created to build part of a software application.
+  \item \textbf{OpenStreetMap/OpenStreetMaps} - (tbc)
+  \item \textbf{Google Maps} - (tbc)
+  \item \textbf{TomTom} - (tbc)
+  \item \textbf{TomTom Maps} - (tbc)
+  \item \textbf{Pathfinding algorithm?} - (tbc)
+  \item \textbf{Optimisation?} - (tbc)
+  \item \textbf{Open-source?} - (tbc)
+  \item \textbf{}
+\end{itemize}
+
+The aim of this project is to adapt a satellite navigation system to provide the most favourable route from one departure point to a particular destination. This will be achieved by testing Dijkstra's pathfinding algorithm and optimising it for a navigation system \cite{Dijkstra1959}. Research will also be carried out using traffic and other data to show how vehicles may reach their destinations more quickly. More realistic results may be achieved, by testing, changing algorithmic variables and then then attempting to improve the algorithm through the use of the test data. The results will be evaluated by comparing the test data to similar test data from experiments developed by others, thus determining which method is the most accurate, cost-effective and efficient way of travelling through a city. The main interface used to convey the outcome of this project is an android application. Research will also be undertaken to find out if applications which contain APIs such as: OpenStreetMaps, Google Maps and TomTom Maps may be used to speed up development of the application.
 
 \subsection{Background}
-\subsection{Motivation}
-\subsection{Report Structure}
-\subsection{Conclusion}
 
-\paragraph{}
+The percentage of households in Britain that own at least one car or van is ever increasing. In 2017, the percentage was 76\%, meaning that there is an increasing need for fast and efficient ways to travel as the roads get inevitably busier (national survey).
+
+The use of navigation applications on mobile phones provides more efficient and portable ways to navigate roads. Navigation applications nowadays have the power to direct and organise their users onto different routes to spread the traffic load on each road and get the mass majority of people to their destinations as fast as possible. However, a car’s speed can also be affected by many other aspects.
+
+The use of optimisation to develop more accurate results based on somewhat unknown factors that affect a car’s speed and therefore may be used as another method to develop more efficient navigation tools.
+
+
+\subsection{Aims and Objectives}
+
+The aim of this project is to adapt a satellite navigation system to provide the most favourable route to a particular destination. This will be achieved by identifying factors that effect a car’s speed, routing through the use of Dijkstra’s shortest path algorithm and optimising the results. The development may be sped up through the use of an open-source API.
+The initial objectives are: 
+\begin{itemize}
+  \item 	Set up an initial interface to display an optimal route.
+  \item Provide an algorithm for which a route can be determined.
+  \item Display the routes on the interface.
+  \item 	Provide weighting factors to adapt the algorithm and produce a more realistic result.
+  \item Use traffic data to provide more realistic routing.
+\end{itemize}	
+
+\subsection{Project Scope and Constraints}
+
+A wide verity of tests will produce results for this project. Each test will use a small range of points to reduce computation time. The scope of this project will depend on the restrictions and limitations of the API chosen. 
+
+%\subsection{Motivation}
+
+
+%\subsection{Report Structure}
+%\subsection{Conclusion}
+\newpage
 \section{Literature Review}
-\subsection{Introduction}
 
-\subsection{Traffic Research}
+\subsection{Factors affecting the speed of cars on roads}
+The speed of cars on roads can be managed by using traffic lights, speed bumps and many more intentional methods put in place by government. However, weather conditions, road incidents and traffic congestion are some of the main factors which affect road users and the speed of cars. These factors are often unpredictable and therefore cannot be reliably calculated by an algorithm before it is presented with them. This suggests that the algorithm may have to adapt in real time to meet users’ demands.
+
+An extension of these factors is the turning path where junctions and roundabouts cause a car’s speed to be affected (factors affecting transportation). Other factors suggested are road quality and turning path. Road quality is important as cars can be slowed down by a road that needs maintenance with road faults such as potholes provide issues for the speed of cars. The construction of a road surface needs to be carefully planned and road surfaces are different depending on what climate a country generally has (factors affecting transportation). 
+
+Based on data in Beijing, 60\% of the total time is spent on intersections. however, 2.7\% of all the intersections were main intersections (400 intersections) and they took 18\% of the total intersection-time suggesting that a large proportion of the total intersection-time was wasted on main intersections \cite{Liu}. This suggests that that another factor that affects car speed is in fact moving from minor roads to major roads. 
+
+\subsection{Algorithms}
+
+Data stored in real-time, taken from cars can be stored in a database to affect the routing algorithm: point (long/lat), time stamps, driving speed and orientation\cite{Zheng2018}. This data may be used to form part of a time-based algorithm.
+
+Algorithms that are often used to find the fastest routes are often based on Dijkstra’s original shortest distance algorithm, however, to adapt that to a time-based algorithm it has to accept factors that will change the distance of each road to then find the roads that take the least time. Comparing the two algorithms below, you can see that there is a subtle difference between the way they calculate the “shortest distances”. In Algorithm 1 … in Algorithm 2 … \cite{Zheng2018}.
+
+Heristic1 (time-based algorithm), Heristic2 (time-based algorithm), Dijkstra (distance-based). \cite{Zheng2018}
+
+%lstinputlisting{}
 
 
-\subsubsection{}Weather conditions, road incidents and traffic congestion are some of the main factors which affect road users and the speed of cars. \cite{Zheng2018}
+\subsubsection{Distance based algorithm versus time based algorithm}
 
-\subsubsection{Distance based algorithm versus time based algorithm}There is a difference between distance-based navigation and time-based navigation: as you can see in figure 1, the red line highlights the path of navigation of a car from points 0 to 5 and the black denotes other potential routes; although the distance 
+Due to the nature of the project, the algorithm must be a time-based algorithm and cannot solely rely on the routes with the shortest distance.
+
+There is a difference between distance-based navigation and time-based navigation: as you can see in figure 1, the red line highlights the path of navigation of a car from points 0 to 5 and the black denotes other potential routes; although the distance 
 of the red line from points 1 to 3 to 5 shown in (a), it takes less time to go from points 1 to 5 as shown in (b), therefore (b) demonstrates the optimum (time-based) route.
 
-\newpage
 
-\figuremacro{h}{TimevsDistanceWeightFactors}{Time versus Distance graphs}{- These are two graphs that represent distance and time respectively.}{1.0} 
+\figuremacro{h}{TimevsDistanceWeightFactors}{Time versus Distance graphs}{- These are two graphs that represent distance and time respectively.}{0.6} 
 
-\subsubsection{}To find traffic congestion, find cars within one road or a set of roads that are averaging the lowest average speed and put the cars on different routes (repeat process) until the average speed has been brought up again to a more suitable average speed (20 km/h). \cite{Zheng2018}
+\subsection{Traffic Data}
 
-\paragraph{}
- Equation to determine the speed weighting for cars in the current area: (cars in average speed cluster) / (total number of cars) * (average speed of cars in the current area). (equation) \cite{Zheng2018}
-\subsubsection{}Traffic congestion is measured by detecting the average speed of the vehicles and if the vehicles are moving slower than 10km/h, then a road is congested \cite{DAndrea2017}.
+Mobile applications for Navigation have the power to track where current users are and use previous users’ historic location data to aid in the navigation through congested areas. This can also be done in real time by finding groups of users in the same location.
 
-\subsection{Google Maps}
-Google maps was introduced in 2005, revolutionising the way maps worked when display on websites as it allowed users to interact with the map \cite{Svennerberg2010}.
-\subsubsection{Google Maps Elevation API}
-Google Maps allows users to see the elevation of locations through the "terrain layer". This layer shades in different parts of the map to show which locations are higher than others. This data is taken from the "Elevation API". This allows users of the API to find the elevation of certain locations by providing the "LocationElevationRequest" with a GPS coordinate which will in return provide the user with an elevation for that GPS coordinate in meters. This API also allows the user to request a set of GPS coordinates along a path by providing the "PathElevationRequest" with two or more GPS coordinates along a path along with a number of samples for the path to be split up into, for example if a the path had two GPS coordinates and was split up into 16 samples then the "PathElevationRequest" would return a graph with 16 elevations between the two coordinates specified \cite{googleElevation}.
+Method 1:
 
-\figuremacro{h}{googleElevationPath}{PathElevationRequest}{- This is what PathElevationRequest returns for 6 coordinates at 256 samples.}{1.0} 
+An example of using users’ current location data to determine the speed weighting for cars on the same street can be seen in this equation \cite{Zheng2018}: (average speed of cars in section of street) / (total number of cars on street) * (average speed of cars in the current street) (make into equation) However, this equation assumes that all the car users on the street are using the same application to collect their data. 
 
-\subsection{TomTom maps}
+
+
+Method 2:
+
+
+
+Traffic congestion can also be measured by detecting the average speed of any of the vehicles on a street. This average speed will then be compared to a traffic congestion speed threshold. If the vehicles are moving slower than that threshold, then a road is deemed to be congested. Deandrea and Marcelloni’s paper suggests the speed threshold is: 10km/h \cite{DAndrea2017}.
+
+
+
+Zheng, Li, Own, Meng and Gao’s paper also suggests that in order to build an algorithm to alleviate traffic congestion, it is necessary to set the usual average speed on a road or set of roads ("route A"), then identify the actual speed of cars at a particular time. Cars would then be diverted onto a different route which is closer to the optimum speed (ie. legal speed). The process would be repeated in order to reduce traffic congestion on route A. \cite{Zheng2018}
+
+Method 1 suggests that from multiple users’ location data you can determine the severity of traffic congestion, however, a simpler technique of just finding any car’s speed and comparing it to a threshold may be easier and more reliable to set up. Consequently, Method 1 seems to be more accurate than method 2 but due to the ease of use and more consistent promise of data, method 2 seems to be a more appropriate method for this project if traffic data is implemented.
+
+\subsubsection{Traffic States}
+
+A lot of the popular satellite navigation applications are similar in determining different levels of traffic \cite{DAndrea2017}. The usual states of traffic that popular systems implement are flowing, slow, very slowed and blocked. Another state was added by D’Andrea and Marcelloni’s paper was absent. Which means there is either no traffic or a total absence of vehicles, this is used for incident detection. The usual traffic systems will check the number of vehicles that have crossed a segment in an amount of time.
+
+In Deandrea and Marcelloni’s paper, the system being described checks if there are sufficient vehicles on each road segment and sets the traffic states based on this algorithm:
+
+Algorithm 3:
+
+If there is insufficient vehicles:
+If there is 0 vehicles then set state to absent
+else then set the state to flowing
+
+Else (if there is enough vehicles)
+  Find the median speed of the cars in the road segment and compare the median speed to a percentage of the speed limit that is close enough to the actual speed limit.
+  If the percentage of speed limit is reached (p1) or a higher speed is found, then set the traffic state to flowing.
+  If it is within a set percentage range lower (p2) then the state is set to slower.
+  If the speed is reaching an even lower percentage of the speed limit (p3) then the state is set to very slow.
+  Else the traffic is blocked.
+  In the experiments used in this paper: p1 = 50\% , p2 = 40\% and p3 = 30\% and the sufficient number of cars was set to 4.
+ 
+
+\section{Technology Review}
+\subsection{Introduction}
+TomTom maps was one of the stand out technologies for this project as it was one of the most accessible and open-source libraries. It also had the capabilities to achieve a large set of the aims that were described at the start of the project.  
+
+Other technologies that were considered were Google maps, HERE maps, OpenStreetMaps and Bing maps. Google maps was thought to be this project’s maps development software at the start of this project, however, the aims of the project could not be developed through Google maps due to the restricted amount of data that could be retrieved from the library. HERE maps was a potential maps development software, however, the initial map application could not be set up, when following the tutorial. OpenStreetMaps had promise as a potential maps development software. It had all the features that all the other maps and more. A feature that could have been useful to this project to help with the application of routing is the fact that OpenStreetMaps has the locations of traffic lights. However, OpenStreetMaps lacked the functionality of other maps as…
+\subsection{Comparison of Technologies}
+table...
+\begin{table}
+  
+\end{table}
+
+\subsection{Further detail on TomTom maps}
 TomTom was founded in 1991 beginning in the business-to-business section of the technology market. They then went on to develop personal digital assistants (PDAS) in the early 90s, going on to become the market leader in PDA software with navigation applications such as "RoutePlanner" and "Citymaps". In 2002, the TomTom "Navigator" provided the first affordable and easy-to-use navigation system to customers in Europe.
 
 This increased demand for portable navigation devices, which lead to the development of the Portable Navigation Device (PND). This became the fastest selling consumer technology device in history and by 2016 TomTom had sold over 78 million PNDs.
@@ -142,7 +248,7 @@ This increased demand for portable navigation devices, which lead to the develop
 Nowadays, TomTom provide customers with several navigation-based products, including a navigation app for android and wrist devices for sports enthusiasts, reaching over 800 million people a day \cite{TomTomHist}.
 
 \subsubsection{Map tiles}
-The TomTom maps API provides the user to view the maps using raster tile images or vector tile images. The difference is subtle when viewing the maps, however in theory, raster tiles should be more detailed as the tile is coloured per pixel whereas vector imaging colours the tile based on the objects inside it (roads, rivers, etc.).
+The TomTom maps API provides the user to view the maps using raster tile images or vector tile images. The difference is subtle when viewing the maps, however in theory, raster tiles should be more detailed as the tile is coloured per pixel whereas vector imaging colours the tile based on the objects inside it (roads, rivers, etc).
 
 The number of tiles shown depends on the level of zoom that the user has defined (by using a pinching gesture on the screen). There are 23 different levels of zoom with 0 showing the whole world in one tile and zoom level 22 showing 2 to the power of 22 tiles. 
 
@@ -187,124 +293,51 @@ There is also a "geocoded" search that will search for addresses that are simila
 
 TomTom claims to have the best routing engine in the industry. This is through the use of traffic data and their "IQ routes" engine.
 
-The "IQ routes" engine is based on average speed data that is taken from their traffic API. It will get an average speed for each road that is along the fastest route paths based on recent historical traffic data. 
-
-The traffic data is collected anonymously by users' of the TomTom app. 
+The "IQ routes" engine is based on average speed data that is taken from their traffic API. It will get an average speed for each road that is along the fastest route paths based on recent historical traffic data. The traffic data is collected anonymously by users' of the TomTom app. 
 
 The IQ route also takes into account: traffic lights, roundabouts, steep slopes, speed bumps and whether the user is travelling on a weekday or at the weekend as these things commonly slow road users' down.
 
-The routing API can also allow the user to set preferences to adapt the route to their needs, these include: fastest route, shortest route, eco route, calculating departure and arrival times for the current route, avoid toll roads/ferries etc.  
+The routing API can also allows the user to set preferences to adapt the route to their needs, these include: fastest route, shortest route, eco route, calculating departure and arrival times for the current route, avoid toll roads/ferries etc. You can also request more than one route to be calculated to show the visual difference between different routes.
 
-You can also request more than one route to be calculated to show the visual difference between different routes. 
-\subsubsection{Traffic data}
+\subsection{Google Maps}
+Google maps was introduced in 2005, revolutionising the way maps worked when display on websites as it allowed users to interact with the map \cite{Svennerberg2010}.
 
-\subsection{Routing Research}
+\subsubsection{Google Maps Elevation API}
+Google Maps allows users to see the elevation of locations through the ``terrain layer''. This layer shades in different parts of the map to show which locations are higher than others. This data is taken from the ``Elevation API''. This allows users of the API to find the elevation of certain locations by providing the ``LocationElevationRequest'' with a GPS coordinate which will in return provide the user with an elevation for that GPS coordinate in meters. This API also allows the user to request a set of GPS coordinates along a path by providing the ``PathElevationRequest'' with two or more GPS coordinates along a path along with a number of samples for the path to be split up into, for example if a the path had two GPS coordinates and was split up into 16 samples then the ``PathElevationRequest'' would return a graph with 16 elevations between the two coordinates specified \cite{googleElevation}.
 
-\subsubsection{}
-Data stored form real-time cars in database to affect the routing algorithm: long/lat, time stamps, driving speed and orientation (data uploaded four times a minute to the server). \cite{Zheng2018}
-
-\subsubsection{}
-Compare the routing algorithm time with other routing algorithms like: Heristic1 (time-based algorithm), Heristic2 (time-based algorithm), Dijkstra (distance-based). \cite{Zheng2018}
-
-\subsubsection{}
-Based on data in Beijing, 60\% of the total time is spent on intersections, although, 2.7\% of all the intersections were main intersections (400 intersections) and they took 18\% of the total intersection-time suggesting that a large proportion of the total intersection-time was wasted on main intersections. \cite{Liu}
-
-\subsubsection{}
-OpenStreetMap description: the map of an area (region, province, city, etc) is implemented as an oriented graph characterised by two main elements: nodes and ways.
-\paragraph{}
-Nodes represent important positions on the map identified by GPS coordinates (lat and long) corresponding to Points of interest (POIs), intersections, points of change in direction on the same road (curves), etc. Thus, between two nodes a linear segment is defined. Each node is associated with n id and with a list tags that describes the characteristics of the node. The number of nodes on a road depends on the type of road (typically urban roads are described with a higher amount of nodes with respect to highways).
-\paragraph{}
-Ways are ordered sets of nodes constituting open or closed polygons, representing possible paths from the start node to the end note. The nodes of a way are listed consecutively and this allows identifying stretches of consecutive roads. (ref) 
-
-\subsubsection{}
-here is picture explaining the different types of segments(description of each needed before pic)
-(pic)
-
-\subsubsection{}
-Graphhopper puts the base node (where the car starts) into both forwards and backwards lists (two opposite-direction lists that display nodes that the car has passed) until the second GPS reading is taken and then removes the nodes from list that is not needed after the second reading is put into the right list. (ref)
-
-\subsubsection{}
-The usual states of traffic that popular systems implement are: flowing, slow, very slowed and blocked. Another state was added by (ref) which is absent. Which means there is either no traffic or a total absence of vehicles, this is used for incident detection. The usual traffic systems will check the number of vehicles that have crossed a segment in an amount of time.
-
-\subsubsection{}
-In the (ref) the system checks if there is sufficient vehicles on each road segment and sets the traffic states based on a few rules:
-\paragraph{}
-- If there is insufficient vehicles:
-If there is 0 vehicles then set state to absent
-else then set the state to flowing
-
-\paragraph{}
-Else (if there is enough vehicles)
-  Find the median speed of the cars in the road segment and compare the median speed to a percentage of the speed limit that is close enough to the actual speed limit.
-  If the percentage of speed limit is reached (p1) or a higher speed is found, then set the traffic state to flowing.
-  If it is within a set percentage range lower (p2) then the state is set to slower.
-  If the speed is reaching an even lower percentage of the speed limit (p3) then the state is set to very slow.
-  Else the traffic is blocked.
-  In the experiments used in this paper: p1 = 50\% , p2 = 40\% and p3 = 30\% and the sufficient number of cars was set to 4.
-  
-  \subsubsection{}
-  Google traffic takes account of four different traffic states: 
-  (i) Normal speed of traffic (green colour)
-  (ii) Slower traffic (yellow colour)
-  (iii) Congestion (red colour)
-  (iv) Blocked or stop-and-go traffic (dark red colour)
-
-\subsection{Car average speed Research}
-
-\subsubsection{Floating car data}
-Problems with tracking average speed is that GPS is not entirely accurate. \cite{Jia}
-
-Intersection delay is a factor that contributes to route calculation. \cite{Liu}
-\subsection{Traffic sensor Research}
-\subsubsection{RFID}
-Disadvantages of active RFID: 
-- Cost per tag
-- Need for battery maintenance/ higher maintenance costs
-- Higher probability of interfering with other devices using similar frequency bandwidths in the area (ISM networks)
-- Propriety communication protocols
-
-\paragraph{}
-By contrast, advantages of passive RFID tags are:
-- Theoretically, the obtained distance of seven meters based on static experiments in \cite{GarciaOya2018} is a good enough range for reading passive RFID tags as cars are normally just over two meters away from the pavement and based on the data rate (40Kbps- protocol: EPC GLOBAL 1G2 ISO 18000-6C) requires only twenty-five milliseconds to measure a tag. 
-- In theory, the passive tag in this paper can measure cars passing at speeds of up  to one hundred kilometres an hour, which therefore suggests that for most use-cases in the city, cars can be read by passive tags.
-- Another advantage is that the complex anti-collision protocol used in \cite{GarciaOya2018} is not necessary due to the reader, used in the experiments, being able to read multiple tags on the same plate.
-
-The conclusion drawn from this comparison is that the passive tag advantages outweigh the use of active tags, in this situation, as the active tags would be "overkill". These results are then validated by the car-in-motion sensor test results - at fifty kilometres an hour, ten tags were read in about 250 milliseconds. However, this approach is limited as the RFID reader needs constant \textit{or at least for the few seconds that a car passes the road sign with an RFID reader attached} line of sight with the car's RFID tag as anything such as a parked vehicle could block the reading. \cite{GarciaOya2018} 
+\figuremacro{h}{googleElevationPath}{PathElevationRequest}{- This is what PathElevationRequest returns for 6 coordinates at 256 samples.}{0.75} 
 
 \newpage
-\section{Technology Review}
-\subsection{Introduction}
-TomTom maps was one of the stand out technologies for this project as it was one of the most accessible and open libraries. It also had the capabilities to achieve a large set of the aims set out at the start of the project.  
-Other technologies that were considered were Google maps, HERE maps, OpenStreetMaps 
-and Bing maps. 
-Google maps was thought to be this project’s maps development software at the start of this project, however, the aims of the project could not be developed through Google maps due to the restricted amount of data that could be retrieved from the library. 
-HERE maps was a potential maps development software, however, the initial map application could not be set up, when following the tutorial.
-OpenStreetMaps had promise as a potential maps development software. It had all the features that all the other maps and more. A feature that could have been useful to this project to help with the application of routing is the fact that OpenStreetMaps has the locations of traffic lights. However, OpenStreetMaps lacked the functionality of other maps as…
-\subsection{Comparison of Technologies}
-table...
-\begin{table}
-  
-\end{table}
 
+\subsubsection{OpenStreetMap}
+The map of an area (region, province, city, etc) is implemented as an oriented graph characterised by two main elements: nodes and ways.
+
+Nodes represent important positions on the map identified by GPS coordinates (lat and long) corresponding to Points of interest (POIs), intersections, points of change in direction on the same road (curves), etc. Thus, between two nodes a linear segment is defined. Each node is associated with n id and with a list tags that describes the characteristics of the node. The number of nodes on a road depends on the type of road (typically urban roads are described with a higher amount of nodes with respect to highways).
+
+Ways are ordered sets of nodes constituting open or closed polygons, representing possible paths from the start node to the end note. Ways can have between 2 and 2000 nodes linked to them. The nodes of a way are listed consecutively and this allows identifying stretches of consecutive roads. \cite{OpenWiki} 
+
+
+
+Graphhopper puts the base node (where the car starts) into both forwards and backwards lists (two opposite-direction lists that display nodes that the car has passed) until the second GPS reading is taken and then removes the nodes from list that is not needed after the second reading is put into the right list. (ref)
 
 \newpage
 \section{Methodology and Design}
 \subsection{Introduction}
-This section will describe how the project was set up and what designs were made before hand to plan for development. It will include what methods were used to plan each development stage, how plans were adapted to make sure the aims were achieved and the tests that were set up to measure the effectiveness each feature developed.
+This section will describe how the project was set up. It will include the methods used to plan each development stage, demonstrate how plans were adapted to ensure the aims were achieved and describe the tests that were set up to measure the effectiveness the features developed.
 
 \subsection{Preparation for Development}
-This section will describe the models that were used to plan for the development stages.
+This sub-section will describe the models used to plan for the development stages.
 
-\subsubsection{Model 1: MoSCoW method}
-The general aims of the project were prioritised in terms of what was most important to achieve a successful project. (picture of MoSCoW method)
-As you can see from (figure.number) a plan was set up to make sure that the interface of the app and the shortest path finding algorithm were developed to achieve most of the aims of this project. Other features that should be added to achieve the aims of the project included the displaying of the result and weighting factors that uniquely changed how the route was calculated. Other ideas that could have been in the project were good ideas, however, did not help achieve the aims of the project and would be done as an extension of the project.
+\subsubsection{Model 1: MoSCoW method (Must, Should, Could, Would)}
+The general aims of the project were prioritised in terms of what is most important to achieve a successful project. (picture of MoSCoW method)
+As you can see from (figure.number) a plan was set up to make sure that the interface of the application and the shortest path-finding algorithm would be developed to achieve most of the aims of the project. Other features that "should" be added to achieve the aims of the project included the displaying of the result and weighting factors that uniquely changed how the route was calculated. Other ideas that "could" have been in the project were good ideas however, did not help achieve the aims of the project and would be done as an extension of the project.
 
 \subsubsection{Model 2: Sprint Backlog}
 After the aims of the project were prioritised, they were split into manageable sprints to form a sprint backlog. This allowed to plan for development and made sure that the aims were delivered within the time given. The plan was made just before development began so that most of the uncertainty about TomTom services was taken care of. (picture of sprint backlog)
 (figure.number) shows that there are four two-week sprints planned for the development of the app. Each includes at least one new feature to implement and by the end the app should be able to achieve all of tis projects aims. 
 
 \subsection{Android Development Process}
-This section will describe the process of how Android Studio was set up for the development of the app.
+This sub-section will describe the process of how Android Studio was set up for the development of the app.
 \subsubsection{Targeted versions}
 Java 1.8.0 was used for the development of this project. The Android SDK (Standard Development Kit) compilation and targeted version was API level 27 (Android 8.1 Oreo) and the minimum SDK version was API level 23 (Android 6.0 Marshmallow). The Android Studio version was kept up to date throughout the project (latest version 3.3). The hardware used to run the app is in the following tables: (table 1: PC specs, table 2: phone specs)
 
@@ -321,7 +354,6 @@ To set up the initial TomTom user interface, a fairly outdated TomTom tutorial o
 
  The map was initially set up to allow the user to long press a location on it to provide a point of departure, the user could then long press another location to select a destination for the TomTom routing API calculate the fastest route to. The map displayed the two points for the route (departure and destination) using different start and finish icons and displayed a highlighted route between the two points (see below for initial development figure. number). The route could also make use of POIs. The search bar at the bottom of (initial development figure.number) could be used to find nearby POIs. The interface would then allow the user to select and add POIs to their route. The TomTom routing API would then change the route to allow the user to make a stop at the selected POI or POIs.
 
- \paragraph{}
  The POIs could be selected through the use of a custom marker. Each POI is marked on the map with a balloon marker and all markers can be clustered so it is more clear to the user what they are selecting. Once a balloon marker was selected, a rectangle appears showing the information about that location including the name and address of the POI. Within the rectangle there is also a button that can be used to add the POI as a waypoint for the user's current route.
 
 \paragraph{Further User Interface Development}
@@ -405,6 +437,8 @@ Due to the occurrence of speed bumps being less common than traffic lights, then
 
 If the application checks the database for a road, and the road is not in the database already then the application has to make some assumptions as to what factors will affect the time it will take for a car to arrive at its destination. Therefore, the application calls the "speedFactor" method. This method applies a set of different factors that could effect the speed of a car along its journey to produce more realistic results than just using the speed, distance and time formula. The method applies three different speed factors: speed bumps, traffic lights and pedestrians. These are presumed to be the most effective factors at slowing a car down other than traffic and road works. There three variables that are set at varying probabilities. Speed bumps are 5\% likely to decrease speed on any road, whilst traffic lights are 30\% likely and pedestrians are 10\% likely. There are also three variables that control how much the speed of the car is effected by each of the speed factors along every street. Speed bumps are presumed to effect the time it takes to get to the end of a street by 50\%, the effect of traffic lights on the speed of cars is also 50\% and the effect of pedestrians on the speed of cars is only 10\%.
 
+If the road is in the database, then the data the databse holds will be retrieved from the database using a library called: "OkHttp" using the app's "ConnectToDB" method. This method will send a request to the server with a JSON body. This JSON body consists of 2 variables to search for in the database: the point and the street name. The server will run some PHP code that searches for the street name and the point and will return the record of the database that is linked to these variables if they are in fact in the databse, or will return an error message signalling that the databse does not contain the information that is being searched for.
+
 \subsubsection{Helper functions implemented to format certain parts of the algorithm}
 
 \paragraph{Distance formula}
@@ -419,10 +453,15 @@ The application will be tested multiple times to improve accuracy of results.
 The application data will be compared to real route data travelled in a car. The application will initially predict what time the car will arrive at the destination depending on the weighting factors that are set up. The car will then be driven according to the same route, the time it took the car to finish the route will be recorded along with the separate times it took to complete each road. The real data will then be inputted into the database and the route time will then be predicted again. The results from the initial prediction will then be compared to the real data taken from the car, and then compared to the prediction made using the data taken from the database. The test route will only initially include roads with speed limits known to be 30mph or less, the test will then be repeated using a different route that uses roads are predominantly over 30mph.
 
 \paragraph{Test 2}
-The application routing will be compared to other applications' routing including: TomTom maps and Google maps. This will be achieved by testing if the applications' differ in routing choice and the time it takes to complete each route when given the same departure and destination. 
+The application routing will be compared to other applications' routing including: TomTom maps and Google maps. This will be achieved by testing if the applications differ in routing choice. If the applications offer different routes, then a car will be driven through the different routes at the same time of the day and the time it takes to complete each route given the same departure point and destination point will be recorded.
 
 \section{Results}
+The tests will be set up according to the tests detailed in the Methodology section.
+
+\subsection{Test 1}
+A route was identified as an appropriate test route. The route contained one set of traffic lights along one road and one road with cobblestone paving. This tests the algorithm as there are considerations for cobblestone paved roads. 
 \section{Evaluation}
+The Evaluation will be based on the results detailed in the resulsts section.
 \section{Future Work}
 
 
