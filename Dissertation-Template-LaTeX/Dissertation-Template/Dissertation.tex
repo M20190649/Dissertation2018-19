@@ -117,13 +117,13 @@ Insert acknowledgements here
   \item \textbf{Google Maps} - (tbc)
   \item \textbf{TomTom} - (tbc)
   \item \textbf{TomTom Maps} - (tbc)
-  \item \textbf{Pathfinding algorithm?} - (tbc)
   \item \textbf{Optimisation?} - (tbc)
   \item \textbf{Open-source?} - (tbc)
   \item \textbf{}
 \end{itemize}
 
-The aim of this project is to adapt a satellite navigation system to provide the most favourable route from one departure point to a particular destination. This will be achieved by testing Dijkstra's pathfinding algorithm and optimising it for a navigation system \cite{Dijkstra1959}. Research will also be carried out using traffic and other data to show how vehicles may reach their destinations more quickly. More realistic results may be achieved, by testing, changing algorithmic variables and then then attempting to improve the algorithm through the use of the test data. The results will be evaluated by comparing the test data to similar test data from experiments developed by others, thus determining which method is the most accurate, cost-effective and efficient way of travelling through a city. The main interface used to convey the outcome of this project is an android application. Research will also be undertaken to find out if applications which contain APIs such as: OpenStreetMaps, Google Maps and TomTom Maps may be used to speed up development of the application.
+stat about sat navs and mobile phones to start...
+The aim\footnote{testtest} of this project is to adapt a satellite navigation system to provide the most favourable route from one departure point to a set destination. This will be achieved by testing Dijkstra's pathfinding algorithm and optimising it for a navigation system \cite{Dijkstra1959}. Research will also be carried out using traffic and other data to show how vehicles may reach their destinations more quickly. More realistic results may be achieved, by testing, changing algorithmic variables and then then attempting to improve the algorithm through the use of the test data. The results will be evaluated by comparing the test data to similar test data from experiments developed by others, thus determining which method is the most accurate, cost-effective and efficient way of travelling through a city. The main interface used to convey the outcome of this project is an android application. Research will also be undertaken to find out if applications which contain APIs such as: OpenStreetMaps, Google Maps and TomTom Maps may be used to speed up development of the application.
 
 \subsection{Background}
 
@@ -150,11 +150,13 @@ The initial objectives are:
 
 A wide verity of tests will produce results for this project. Each test will use a small range of points to reduce computation time. The scope of this project will depend on the restrictions and limitations of the API chosen. 
 
-%\subsection{Motivation}
+expand this...
+
+\subsection{Motivation}
+\subsection{Report Structure}
 
 
-%\subsection{Report Structure}
-%\subsection{Conclusion}
+\subsection{Summary}
 \newpage
 \section{Literature Review}
 
@@ -165,7 +167,14 @@ An extension of these factors is the turning path where junctions and roundabout
 
 Based on data in Beijing, 60\% of the total time is spent on intersections. however, 2.7\% of all the intersections were main intersections (400 intersections) and they took 18\% of the total intersection-time suggesting that a large proportion of the total intersection-time was wasted on main intersections \cite{Liu}. This suggests that that another factor that affects car speed is in fact moving from minor roads to major roads. 
 
+In edz however...
+
 \subsection{Algorithms}
+
+Pathfinding is...
+
+explain Dijkstra...
+problems with Dijkstra... link into the time-based algorithms...
 
 Data stored in real-time, taken from cars can be stored in a database to affect the routing algorithm: point (long/lat), time stamps, driving speed and orientation\cite{Zheng2018}. This data may be used to form part of a time-based algorithm.
 
@@ -180,33 +189,24 @@ Heristic1 (time-based algorithm), Heristic2 (time-based algorithm), Dijkstra (di
 
 Due to the nature of the project, the algorithm must be a time-based algorithm and cannot solely rely on the routes with the shortest distance.
 
-There is a difference between distance-based navigation and time-based navigation: as you can see in figure 1, the red line highlights the path of navigation of a car from points 0 to 5 and the black denotes other potential routes; although the distance 
-of the red line from points 1 to 3 to 5 shown in (a), it takes less time to go from points 1 to 5 as shown in (b), therefore (b) demonstrates the optimum (time-based) route.
+There is a difference between distance-based navigation and time-based navigation: graph (a) shows a distance algoithm with the context of navigating through a road network, (b) shows a time algorithm and how a different route is taken (change this) as illustrated in figure 1, the red line highlights the path of navigation of a car from points 0 to 5 and the black denotes other potential routes; although the distance 
+of the red line from points 1 to 3 to 5 shown in (a), it takes less time to go from points 1 to 5 as shown in (b), therefore (b) demonstrates the optimum (time-based) route.(ref)
 
 
-\figuremacro{h}{TimevsDistanceWeightFactors}{Time versus Distance graphs}{- These are two graphs that represent distance and time respectively.}{0.6} 
+\figuremacro{h}{TimevsDistanceWeightFactors}{Time versus Distance graphs}{- These are two graphs that represent distance and time respectively. adapted from (ref) (adapt to not have the symbols before the times)}{0.6} 
 
 \subsection{Traffic Data}
 
 Mobile applications for Navigation have the power to track where current users are and use previous users’ historic location data to aid in the navigation through congested areas. This can also be done in real time by finding groups of users in the same location.
 
-Method 1:
-
 An example of using users’ current location data to determine the speed weighting for cars on the same street can be seen in this equation \cite{Zheng2018}: (average speed of cars in section of street) / (total number of cars on street) * (average speed of cars in the current street) (make into equation) However, this equation assumes that all the car users on the street are using the same application to collect their data. 
-
-
-
-Method 2:
-
-
 
 Traffic congestion can also be measured by detecting the average speed of any of the vehicles on a street. This average speed will then be compared to a traffic congestion speed threshold. If the vehicles are moving slower than that threshold, then a road is deemed to be congested. Deandrea and Marcelloni’s paper suggests the speed threshold is: 10km/h \cite{DAndrea2017}.
 
-
-
 Zheng, Li, Own, Meng and Gao’s paper also suggests that in order to build an algorithm to alleviate traffic congestion, it is necessary to set the usual average speed on a road or set of roads ("route A"), then identify the actual speed of cars at a particular time. Cars would then be diverted onto a different route which is closer to the optimum speed (ie. legal speed). The process would be repeated in order to reduce traffic congestion on route A. \cite{Zheng2018}
 
-Method 1 suggests that from multiple users’ location data you can determine the severity of traffic congestion, however, a simpler technique of just finding any car’s speed and comparing it to a threshold may be easier and more reliable to set up. Consequently, Method 1 seems to be more accurate than method 2 but due to the ease of use and more consistent promise of data, method 2 seems to be a more appropriate method for this project if traffic data is implemented.
+change this... to not have methods...
+Method 1 suggests that from multiple users’ location data you can determine the severity of traffic congestion, however, a simpler technique of just finding any car’s speed and comparing it to a threshold may be easier and more reliable to set up. Consequently, Method 1 seems to be more accurate than method 2 but due to the ease of use and more consistent promise of data, method 2 seems to be a more appropriate method for this project (put this into intro of Methodology) if traffic data is implemented.
 
 \subsubsection{Traffic States}
 
@@ -288,6 +288,8 @@ There is a "Low bandwidth" search. This allows the user to
 There is also a "Along route" search that allows the user set points of interest that the user wants to detour current route for. 
 
 There is also a "geocoded" search that will search for addresses that are similar to the current search query that the user has inputted.
+
+(put all the different searches into a table)
 
 \subsubsection{Routing API}
 
@@ -454,6 +456,8 @@ The application data will be compared to real route data travelled in a car. The
 
 \paragraph{Test 2}
 The application routing will be compared to other applications' routing including: TomTom maps and Google maps. This will be achieved by testing if the applications differ in routing choice. If the applications offer different routes, then a car will be driven through the different routes at the same time of the day and the time it takes to complete each route given the same departure point and destination point will be recorded.
+
+the tests will be evaulated against...
 
 \section{Results}
 The tests will be set up according to the tests detailed in the Methodology section.
