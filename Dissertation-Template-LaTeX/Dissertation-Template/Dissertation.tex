@@ -50,7 +50,7 @@
 \fancyhead[L]{Dylan Tyrie-Dron - 40203045}
 \fancyhead[R]{ SOC10101 Honours Project}
 \fancyfoot[L]{}
-\fancyfoot[C]{\thepage}
+\fancyfoot[C]{\vspace{2em}\thepage}
 
 %set better section layout
 \makeatletter
@@ -68,6 +68,14 @@
 
 %put paragraph headings on their own line
 \newcommand{\myparagraph}[1]{\paragraph{#1}\mbox{}\\}
+
+% footnote in footer
+\newcommand{\fancyfootnotetext}[2]{%
+  \fancypagestyle{dingens}{%
+    \fancyfoot[LO,RE]{\parbox{12cm}{\footnotemark[#1]\footnotesize #2}}%
+  }%
+  \thispagestyle{dingens}%
+}
 
 
 %this starts the document
@@ -119,7 +127,6 @@ Insert acknowledgements here
   \item \textbf{TomTom Maps} - (tbc)
   \item \textbf{Optimisation?} - (tbc)
   \item \textbf{Open-source?} - (tbc)
-  \item \textbf{}
 \end{itemize}
 
 stat about sat navs and mobile phones to start...
@@ -171,7 +178,7 @@ In edz however...
 
 \subsection{Algorithms}
 
-Pathfinding is...
+Pathfinding is finding the...
 
 explain Dijkstra...
 problems with Dijkstra... link into the time-based algorithms...
@@ -190,43 +197,72 @@ Heristic1 (time-based algorithm), Heristic2 (time-based algorithm), Dijkstra (di
 Due to the nature of the project, the algorithm must be a time-based algorithm and cannot solely rely on the routes with the shortest distance.
 
 There is a difference between distance-based navigation and time-based navigation: graph (a) shows a distance algoithm with the context of navigating through a road network, (b) shows a time algorithm and how a different route is taken (change this) as illustrated in figure 1, the red line highlights the path of navigation of a car from points 0 to 5 and the black denotes other potential routes; although the distance 
-of the red line from points 1 to 3 to 5 shown in (a), it takes less time to go from points 1 to 5 as shown in (b), therefore (b) demonstrates the optimum (time-based) route.(ref)
+of the red line from points 1 to 3 to 5 shown in (a), it takes less time to go from points 1 to 5 as shown in (b), therefore (b) demonstrates the optimum (time-based) route \cite{Zheng2018}. 
 
-
-\figuremacro{h}{TimevsDistanceWeightFactors}{Time versus Distance graphs}{- These are two graphs that represent distance and time respectively. adapted from (ref) (adapt to not have the symbols before the times)}{0.6} 
+\figuremacro{h}{TimevsDistanceWeightFactors}{Time versus Distance graphs}{- These are two graphs that represent distance and time respectively. Adapted from \cite{Zheng2018} and \cite{SpeedvsTime}}{0.6} 
 
 \subsection{Traffic Data}
 
 Mobile applications for Navigation have the power to track where current users are and use previous users’ historic location data to aid in the navigation through congested areas. This can also be done in real time by finding groups of users in the same location.
 
-An example of using users’ current location data to determine the speed weighting for cars on the same street can be seen in this equation \cite{Zheng2018}: (average speed of cars in section of street) / (total number of cars on street) * (average speed of cars in the current street) (make into equation) However, this equation assumes that all the car users on the street are using the same application to collect their data. 
+An example of using users’ current location data to determine the speed weighting for cars on the same street can be seen in this equation \cite{Zheng2018}: 
+\[
+    SW = \frac{v_{avg}(section)}{(T_c \times v_{avg}(whole street))}
+\]
 
+Where ~$SW$ is the speed weighting, ~$v_{arg}(section)$ is the average speed of cars in a section of the current street, ~$T_c$ is the total number of cars on the current street and\newline ~$v_{avg}(whole street)$ is the average speed of cars in the current street. However, this equation assumes that all the car users on the street are using the same application to collect their data. 
+
+There is a small problem with tracking users within one app: other car users may use other navigation applications on the same road. As illustrated in Fig.\ref{fig:tomtomTracking} below there are three users on the road. However, not all users on the road are using the same application and therefore the tracking of users on that road has become inaccurate.
+
+\figuremacro{h}{tomtomTracking}{Car users on one app versus another}{- A map showing one blue cursor representing users from Google maps \footnotemark[1] and two red cursors on the same street. Adapted from \cite{TomTomMyDrive}}{1.0}
+
+\fancyfootnotetext{\value{footnote}}{https://www.google.com/maps}
 Traffic congestion can also be measured by detecting the average speed of any of the vehicles on a street. This average speed will then be compared to a traffic congestion speed threshold. If the vehicles are moving slower than that threshold, then a road is deemed to be congested. Deandrea and Marcelloni’s paper suggests the speed threshold is: 10km/h \cite{DAndrea2017}.
 
-Zheng, Li, Own, Meng and Gao’s paper also suggests that in order to build an algorithm to alleviate traffic congestion, it is necessary to set the usual average speed on a road or set of roads ("route A"), then identify the actual speed of cars at a particular time. Cars would then be diverted onto a different route which is closer to the optimum speed (ie. legal speed). The process would be repeated in order to reduce traffic congestion on route A. \cite{Zheng2018}
+In order to build an algorithm to alleviate traffic congestion, it is necessary to set the usual average speed on a road or set of roads ("route A"), then identify the actual speed of cars at a particular time. Cars would then be diverted onto a different route which is closer to the optimum speed (ie. legal speed). The process would be repeated in order to reduce traffic congestion on route A. \cite{Zheng2018}
 
 change this... to not have methods...
 Method 1 suggests that from multiple users’ location data you can determine the severity of traffic congestion, however, a simpler technique of just finding any car’s speed and comparing it to a threshold may be easier and more reliable to set up. Consequently, Method 1 seems to be more accurate than method 2 but due to the ease of use and more consistent promise of data, method 2 seems to be a more appropriate method for this project (put this into intro of Methodology) if traffic data is implemented.
 
 \subsubsection{Traffic States}
 
-A lot of the popular satellite navigation applications are similar in determining different levels of traffic \cite{DAndrea2017}. The usual states of traffic that popular systems implement are flowing, slow, very slowed and blocked. Another state was added by D’Andrea and Marcelloni’s paper was absent. Which means there is either no traffic or a total absence of vehicles, this is used for incident detection. The usual traffic systems will check the number of vehicles that have crossed a segment in an amount of time.
+A lot of the popular satellite navigation applications are similar in determining different levels of traffic \cite{DAndrea2017}. The usual states of traffic that popular systems implement are flowing, slow, very slowed and blocked. Another state that was added in Deandrea and Marcelloni’s paper was absent, which means there is either no traffic or a total absence of vehicles. This is used for incident detection. The usual traffic systems will check the number of vehicles that have crossed a segment in an amount of time.
 
 In Deandrea and Marcelloni’s paper, the system being described checks if there are sufficient vehicles on each road segment and sets the traffic states based on this algorithm:
 
-Algorithm 3:
+\begin{algorithm}[H]
+  \SetAlgoLined
+    \eIf{insufficient number of vechiles on the road}{
+      \eIf{0 vechiles}{
+        set state to absent\;
+      }{
+        set to flowing\;
+      }
+     }{
+     Find the median speed of the cars in the road segment ($ms$)\;
+     
+     Compare $ms$ to a percentage of the currrent road speed limit that is close to the speed limit ($p_1$)\;
 
-If there is insufficient vehicles:
-If there is 0 vehicles then set state to absent
-else then set the state to flowing
+     \eIf{percentage of speed limit reached $p_1$ or higher median speed found}{
+        set to flowing\;
+     }{
+       \eIf{median speed is in a lower range ($p_2$) than $p_1$}{
+        state is set to slower\;
+       }{
+         \eIf{median speed is in a lower range ($p_3$) than $p_2$}{
+          state is set to very slow\;
+         }{
+          state is set to blocked\;
+         }
+       }
+     }
 
-Else (if there is enough vehicles)
-  Find the median speed of the cars in the road segment and compare the median speed to a percentage of the speed limit that is close enough to the actual speed limit.
-  If the percentage of speed limit is reached (p1) or a higher speed is found, then set the traffic state to flowing.
-  If it is within a set percentage range lower (p2) then the state is set to slower.
-  If the speed is reaching an even lower percentage of the speed limit (p3) then the state is set to very slow.
-  Else the traffic is blocked.
-  In the experiments used in this paper: p1 = 50\% , p2 = 40\% and p3 = 30\% and the sufficient number of cars was set to 4.
+
+    }
+   \caption{Find the flow of traffic on a road}
+  \end{algorithm}
+
+  Where~$p_1$ = 50\%, $p_2$ = 40\%, $p_3$ = 30\% and the sufficient number of cars on a road was set to 4 \cite{DAndrea2017}.
  
 
 \section{Technology Review}
@@ -446,18 +482,46 @@ If the road is in the database, then the data the databse holds will be retrieve
 \paragraph{Distance formula}
 The Haversine formula was used to calculate the distance between a pair of latitude/longitude points. This formula finds the distance between two points along the earth's surface without considering the altitude of the points and therefore is not accurate when judging distances from low ground to high ground. 
 
-The formula is this...
+The Haversine formula was attempted\cite{Haversine}: 
+
+\[
+    a= sin^2(\Delta\phi/2) + cos\phi_1 \times cos\phi_2 \times sin^2(\Delta\lambda/2)
+\]
+\[
+    c=2 \times atan2(\sqrt{a},\sqrt{(1-a)})
+    \]
+\[
+    d= R \times c
+\]
+
+  Where~$\Delta$ means the change in a variable, $\phi$ is the lattitude, $\phi_1$ is the first point's latitude, $\phi_2$ is the second point's latitude, $\lambda$ is the longitude, $d$ is the distance and $R$ is the earth's radius in km (6,371km) \cite{Haversine}.
+
+  After attempting this formula, it was found that the wrong distances outputted by this formula. This was due assumptions made by the formula (all angles need to be in radians) that weren not taken into account when inputting the formula into this project.
+
+  For this project, the distances were found by translating TomTom's coordinates to Google's \textit{Location} and then calculating the distances using the \textit{distanceTo()} method that produces more accurate distances \cite{GoogleLocation}.
 
 \subsubsection{Testing the application}
 The application will be tested multiple times to improve accuracy of results. 
 
-\paragraph{Test 1}
-The application data will be compared to real route data travelled in a car. The application will initially predict what time the car will arrive at the destination depending on the weighting factors that are set up. The car will then be driven according to the same route, the time it took the car to finish the route will be recorded along with the separate times it took to complete each road. The real data will then be inputted into the database and the route time will then be predicted again. The results from the initial prediction will then be compared to the real data taken from the car, and then compared to the prediction made using the data taken from the database. The test route will only initially include roads with speed limits known to be 30mph or less, the test will then be repeated using a different route that uses roads are predominantly over 30mph.
+\myparagraph{Test 1}
+The application data will be compared to real route data travelled in a car. The application will initially predict what time the car will arrive at the destination depending on the weighting factors that are set up. The car will then be driven according to the same route, the time it took the car to finish the route will be recorded along with the separate times it took to complete each road. The test will then be repeated five times to reduce error. The application's predicted times will then be averaged and will then be compared to average time it took for the car to complete the route. The route will cover roads with speed limits of less than or equal to 30 mph.
 
-\paragraph{Test 2}
-The application routing will be compared to other applications' routing including: TomTom maps and Google maps. This will be achieved by testing if the applications differ in routing choice. If the applications offer different routes, then a car will be driven through the different routes at the same time of the day and the time it takes to complete each route given the same departure point and destination point will be recorded.
+\myparagraph{Test 2}
+The real car data from test 1 will be inputted into the database including information about how many traffic lights and speed bumps are on each road in the route. The route time will then be predicted by the application again. The test will be repeated five times to reduce error. The average time predicted by the application for a car to complete a route will be compared to the average time it took for the car to complete the route. The average time will then be compared to the average time taken from test 1. 
 
-the tests will be evaulated against...
+\myparagraph{Test 3}
+The core method of test 1 will be retested using a different route. This route will include roads with speed limits above 30 mph, however. The route will be tested five times. The average route time predicted will again be compared against the average time taken for the car to finish the route.
+
+\myparagraph{Test 4}
+The core method of test 2 will be retested using a different route. This route will include roads with speed limits above 30 mph. The route will be tested five times. The average route time will again be compared against the average time taken for the car to complete the route.  
+
+\myparagraph{Test 5}
+The application routing will be compared to other applications' routing including: TomTom maps and Google maps. This will be achieved by testing if the applications differ in routing choice. If the applications offer different routes, then a car will be driven through the different routes at the same time of the day and the time it takes to complete each route, given the same departure point and destination point, will be recorded. This test will then be repeated five times. The various average times will be compare to each other. This test will be tested using the routes from the other tests in this project.
+
+\subsubsection{Evaulating the application}
+
+The routes taken from all the tests (tests 1-4) will be evaluated by comparing them against routes given by Google Maps, Bing Maps and TomTom Maps.
+The times taken from the tests (test 1-4) will be evaluated by comparing them against times estimated by Google Maps, Bing Maps and TomTom Maps.
 
 \section{Results}
 The tests will be set up according to the tests detailed in the Methodology section.
