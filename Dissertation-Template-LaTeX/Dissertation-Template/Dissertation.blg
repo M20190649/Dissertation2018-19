@@ -1,19 +1,7 @@
 This is BibTeX, Version 0.99dThe top-level auxiliary file: Dissertation.aux
 The style file: apalike.bst
 Database file #1: ./diss.bib
-Warning--I didn't find a database entry for "Haversine"
-Warning--to sort, need author or key in SpeedvsTime
-Warning--to sort, need author or key in TomTomMyDrive
-Warning--to sort, need author or key in TomTomHist
-Warning--to sort, need author or key in TomTomLayers
-Warning--to sort, need author or key in googleElevation
-Warning--to sort, need author or key in OpenWiki
-Warning--empty year in googleElevation
-Warning--empty year in TomTomHist
-Warning--empty year in SpeedvsTime
-Warning--empty year in OpenWiki
-Warning--empty year in TomTomLayers
-Warning--empty year in TomTomMyDrive
-Warning--empty year in Liu
+Warning--empty institution in nationalSurvey
 Warning--empty journal in Liu
-(There were 15 warnings)
+Warning--empty institution in Mathew2007
+(There were 3 warnings)

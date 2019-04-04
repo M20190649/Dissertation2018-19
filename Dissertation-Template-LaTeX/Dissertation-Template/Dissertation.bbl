@@ -1,23 +1,10 @@
 \begin{thebibliography}{}
 
-\bibitem[goo, ]{googleElevation}
-{Elevation Service  |  Maps JavaScript API  |  Google Developers}.
-
-\bibitem[Tom, a]{TomTomHist}
-{History | TomTom}.
-
-\bibitem[Spe, ]{SpeedvsTime}
-{Measurement of Speed and Distance Time graph: Methods to plot {\&} videos}.
-
-\bibitem[Ope, ]{OpenWiki}
-{OpenStreetMap Wiki}.
-
-\bibitem[Tom, b]{TomTomLayers}
-{Static Image | Maps API Documentation, Raster | Maps API | TomTom Developer
-  Portal}.
-
-\bibitem[Tom, c]{TomTomMyDrive}
-{TomTom MyDrive}.
+\bibitem[Android, 2019]{GoogleLocation}
+Android (2019).
+\newblock {Location  |  Android Developers}.
+\newblock
+  \url{https://developer.android.com/reference/android/location/Location}.
 
 \bibitem[D'Andrea and Marcelloni, 2017]{DAndrea2017}
 D'Andrea, E. and Marcelloni, F. (2017).
@@ -30,15 +17,96 @@ Dijkstra, E.~W. (1959).
 \newblock {A note on two problems in connexion with graphs}.
 \newblock {\em Numerische Mathematik}, 1(1):269--271.
 
-\bibitem[Liu et~al., ]{Liu}
-Liu, X., Lu, F., Zhang, H., and Qiu, P.
+\bibitem[Evans et~al., 2017]{nationalSurvey}
+Evans, A., Cummings, J., Slocombe, M., and Corvaglia, F. (2017).
+\newblock {2017 National Travel Survey}.
+\newblock Technical report.
+
+\bibitem[Google, 2019]{googleElevation}
+Google (2019).
+\newblock {Elevation Service  |  Maps JavaScript API  |  Google
+  Developers}.
+\newblock
+  \url{https://developers.google.com/maps/documentation/javascript/elevation}.
+
+\bibitem[Liu et~al., 2012]{Liu}
+Liu, X., Lu, F., Zhang, H., and Qiu, P. (2012).
 \newblock {Intersection delay estimation from floating car data via principal
   curves: a case study on Beijing's road network}.
+
+\bibitem[Mathew and Rao, 2007]{Mathew2007}
+Mathew, T.~V. and Rao, K. (2007).
+\newblock {Factors affecting transportation 4.1 Overview 4.2.2 Critical
+  characteristics}.
+\newblock Technical report.
+
+\bibitem[OpenStreetMap, 2019]{OpenWiki}
+OpenStreetMap (2019).
+\newblock {OpenStreetMap Wiki}.
+\newblock \url{https://wiki.openstreetmap.org/wiki/Main{\_}Page}.
+
+\bibitem[Panko, 2018]{trendsInnavigation}
+Panko, R. (2018).
+\newblock {The Popularity of Google Maps: Trends in Navigation Apps in 2018 |
+  The Manifest}.
+\newblock
+  \url{https://themanifest.com/app-development/popularity-google-maps-trends-navigation-apps-2018}.
 
 \bibitem[Svennerberg, 2010]{Svennerberg2010}
 Svennerberg, G. (2010).
 \newblock {\em {Beginning Google Maps API 3}}.
 \newblock Apress.
+
+\bibitem[TomTom, 2019a]{TomTomIQ}
+TomTom (2019a).
+\newblock {About IQ Routes}.
+\newblock
+  \url{http://uk.support.tomtom.com/app/answers/detail/a{\_}id/9552/{~}/about-iq-routes}.
+
+\bibitem[TomTom, 2019b]{TomTomHist}
+TomTom (2019b).
+\newblock {History | TomTom}.
+\newblock \url{https://corporate.tomtom.com/company/our-company/history}.
+
+\bibitem[TomTom, 2019c]{TomTomMapAPI}
+TomTom (2019c).
+\newblock {Map | Maps SDK for Android | TomTom Developer Portal}.
+\newblock \url{https://developer.tomtom.com/maps-android-sdk/map}.
+
+\bibitem[TomTom, 2019d]{TomTomTut}
+TomTom (2019d).
+\newblock {Search along a route | Android Tutorials, Use Cases | Maps SDK for
+  Android | TomTom Developer Portal}.
+\newblock
+  \url{https://developer.tomtom.com/maps-sdk-android/android-tutorials-use-cases/search-along-route}.
+
+\bibitem[TomTom, 2019e]{TomTomLayers}
+TomTom (2019e).
+\newblock {Static Image | Maps API Documentation, Raster | Maps API | TomTom
+  Developer Portal}.
+\newblock
+  \url{https://developer.tomtom.com/maps-api/maps-api-documentation-raster/static-image}.
+
+\bibitem[Toppr, 2019]{SpeedvsTime}
+Toppr (2019).
+\newblock {Measurement of Speed and Distance Time graph: Methods to plot {\&}
+  videos}.
+\newblock
+  \url{https://www.toppr.com/guides/science/motion-and-time/measurement-of-speed-and-distance-time-graph/}.
+
+\bibitem[Trivedi, 2019]{Trivedi2019}
+Trivedi, U. (2019).
+\newblock {Dijkstra's shortest path algorithm using set in STL -
+  GeeksforGeeks}.
+\newblock
+  \url{https://www.geeksforgeeks.org/dijkstras-shortest-path-algorithm-using-set-in-stl/}.
+
+\bibitem[Veness, 2002]{Haversine}
+Veness, C. (2002).
+\newblock {Calculate distance and bearing between two Latitude/Longitude points
+  using haversine formula in JavaScript}.
+\newblock \url{https://www.movable-type.co.uk/scripts/latlong.html}.
+\newblock 2019-04-01.
 
 \bibitem[Zheng et~al., 2018]{Zheng2018}
 Zheng, Y., Li, Y., Own, C.-M., Meng, Z., and Gao, M. (2018).
